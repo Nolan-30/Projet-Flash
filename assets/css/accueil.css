@@ -1,0 +1,490 @@
+body {
+  background-color: #070320;
+  color: aliceblue;
+  margin: 0;
+}
+
+#main {
+  max-width: 1240px;
+  margin-left: 5%;
+}
+
+/**
+* Header
+*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header p {
+  margin-left: -3%;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  /* Texte en gras */
+}
+
+header .menu {
+  margin: 0 auto;
+
+  border-radius: 20px 20px 20px 20px;
+
+  padding: 15px;
+
+  display: flex;
+  gap: 20px;
+  margin-top: 3%;
+  /* c pas la bonne methode pr placer le menu a revoir plus tard */
+  margin-left: 55%;
+  width: 300px;
+  height: 50px;
+}
+
+header .menu li {
+  list-style-type: none;
+  color: rgb(255, 255, 255);
+}
+
+.bouton {
+  border-radius: 10px;
+  padding: 10px 15px;
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+}
+
+.bouton.rouge {
+  background-color: red;
+  color: #fff;
+}
+
+#section-banner {
+  width: 970px;
+  height: 500px;
+}
+
+#section-banner p.orange {
+  color: rgb(215, 107, 0);
+  margin-top: 10%; /* pr bien mettre un espace comme sur la maquette */
+}
+
+#section-banner img {
+  display: flex;
+  justify-content: right; /* gauche | center | droite */
+  align-items: right; /* haut | center | bas */
+  margin-left: 50%;
+  margin-top: -20%;
+}
+
+#section-banner .main h1 {
+  margin-top: 5px;
+  /* Réduit la marge supérieure du titre blanc */
+  padding: 0;
+  /* Supprime le padding */
+}
+.orange-boite {
+  width: 250px;
+  height: 150px;
+  margin-top: 5%;
+}
+
+#orange {
+  margin-top: 10%;
+  border: 2px solid rgb(224, 112, 8);
+  border-radius: 30px;
+  padding: 20px;
+  background: linear-gradient(orange, red);
+  text-decoration: double;
+  color: white;
+}
+
+.main h1 {
+  width: 100px;
+  height: 120px;
+
+  font-size: 50px;
+  min-width: 480px;
+  max-width: 480px;
+}
+
+.main img {
+  display: flex;
+  justify-content: right;
+}
+
+.main p {
+  min-width: 50%;
+  max-width: 50%;
+  margin-top: -20%; /* Pour placer le txt juste en dessous d'un autre txt */
+}
+
+#jeux {
+  height: 400px;
+  width: 800px;
+  margin-bottom: 10%;
+}
+
+#jeux h2 {
+  margin-top: 15%;
+  color: white;
+}
+
+.play h2 {
+  text-align: center;
+  margin-left: 35%;
+  margin-bottom: 10%;
+  min-width: 400px;
+  max-width: 500px;
+}
+
+/* qd tt sera fini refaire de play h3 a play img je dois mettre tout ca dans le meme encadré */
+.play h3 {
+  margin-left: 7%;
+}
+
+.play p {
+  margin-left: 7%;
+  min-width: 400px;
+  max-width: 500px;
+}
+
+.play-img {
+  width: 100%;
+  height: 624px;
+
+  display: flex;
+  justify-content: center;
+
+  margin-left: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+/* background */
+
+/* ca doit prendre tt la largeutr a refaire */
+.fond {
+  background-image: url("../images/fond-techno.jpg"); /* je dois remonter d'un cran pour pouvoir aller dans le dossier asset puis image pr afficher mon image*/
+  background-size: cover;
+  background-position: center;
+  width: 1370px;
+  height: 880px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* creation d'une grande boite pr mettre les num dans une boite et les lettres dans une autre boite */
+
+.fond h2 {
+  align-items: center;
+  margin-left: 30%;
+  text-align: center;
+  min-width: 500px;
+  max-width: 500px;
+}
+
+.fond p {
+  display: flex;
+  justify-content: center;
+
+  /* centre le texte horizontalement */
+  align-items: center;
+  text-align: center;
+  min-width: 700px;
+  max-width: 700px;
+  min-height: 100px;
+  max-height: 100px;
+
+  padding: 20px;
+  height: 450px;
+  width: 95%;
+  margin: 0 auto;
+  color: white;
+}
+
+.numero_contenu {
+  display: flex;
+  justify-content: center;
+  gap: 75px;
+
+  padding: 20px;
+}
+
+.numero_contenu1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 75px;
+  /* Espace entre chaque encadré */
+  padding: 20px;
+  margin-top: 1%;
+}
+
+.numero_encadre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 230px;
+  height: 130px;
+  background-color: rgb(255, 10, 10);
+  color: white;
+  margin: 0;
+}
+
+.numero_encadre1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 230px;
+  height: 130px;
+  background-color: rgb(55, 209, 223);
+  color: white;
+  margin: 0;
+}
+
+.numero_encadre2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 230px;
+  height: 130px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  margin: 0;
+}
+
+.numero_encadre3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 230px;
+  height: 130px;
+  background-color: rgb(255, 0, 0);
+  color: white;
+  margin: 0;
+}
+
+.numero_encadre4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 230px;
+  height: 130px;
+  background-color: rgb(255, 68, 196);
+  color: white;
+  margin: 0;
+}
+
+.chiffre {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.texte {
+  font-size: 1em;
+  text-align: center;
+}
+
+#equipe {
+  padding: 20px;
+  height: 450px;
+  width: 95%;
+
+  margin: 0 auto;
+  margin-top: 10%;
+
+  border-radius: 20px 20px 20px 20px;
+
+  padding: 15px;
+}
+
+#equipe h2 {
+  text-align: center;
+}
+
+#equipe p {
+  text-align: center;
+  justify-content: center;
+  /* centre le texte horizontalement */
+  align-items: center;
+  margin-bottom: 10%;
+}
+
+.membres {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.membres1 {
+  text-align: center;
+}
+
+.membres2 {
+  text-align: center;
+  flex: 1;
+}
+
+.jeux-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  margin-top: 10%;
+}
+
+.jeu-item {
+  text-align: center;
+  flex: 1;
+}
+
+.jeu-item img {
+  border-radius: 10px;
+}
+
+.jeu-item p {
+  color: white;
+  margin-top: 10px;
+}
+
+#blanc_jeu {
+  color: aliceblue;
+}
+
+/* je créer un encadré pr pouvoir décaler du txt grace au margin */
+
+#alignement {
+  margin-top: 15%;
+  margin-left: 5%;
+  width: 400px;
+  height: 200px;
+  /* border: 5px solid red;    utilisation d'un encadré pr bien me repérer*/
+}
+
+#alignement p {
+  width: 200px;
+  height: 50px;
+
+  min-width: 400px;
+  max-width: 400px;
+}
+
+#alignement h2 {
+  margin-top: 10%;
+}
+
+#derniere_boite {
+  background-color: white;
+  width: 90%; /* pr qu'il y a un ptit espace au debut et a la fin de la box*/
+  height: 200px;
+  margin: 0 auto;
+  margin-bottom: 10%;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+#derniere_boite h2 {
+  color: black;
+  min-width: 500px;
+  max-width: 500px;
+  margin-left: 3%;
+}
+
+#derniere_boite p {
+  min-width: 650px;
+  max-width: 650px;
+  color: black;
+  margin-left: 3%;
+}
+
+.mail_valider {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: -5%;
+}
+
+.mail_valider input {
+  background-color: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 10px;
+  width: 250px;
+  height: 20px;
+  margin-left: 5%;
+  margin: 0;
+}
+
+.mail_valider button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: rgb(213, 0, 0);
+  color: white;
+}
+
+.encadre_mail_valider {
+  margin-left: 65%;
+}
+
+/** Footer **/
+
+footer {
+  color: black;
+  background-color: #fff;
+  width: 100%;
+  height: 250px;
+  list-style: none;
+}
+
+.box-container {
+  display: flex;
+  width: 94%;
+  height: 160px;
+
+  margin-left: 5%;
+  padding-top: 3%; /* pr creeer un espace en haut prsk margin top ne marche pas */
+
+  gap: 10px;
+}
+
+.box-logo {
+  min-width: 400px;
+  max-width: 400px;
+}
+
+.box-menu {
+  width: 200px;
+  height: 150px;
+
+  margin-left: 5%;
+}
+
+.box-menu ul {
+  /* pr enlever les pts devant le txt */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.box-contact {
+  width: 200px;
+  height: 130px;
+}
+
+.box-rs {
+  width: 300px;
+  height: 100px;
+
+  /* placement */
+  margin-top: 5%;
+  margin-left: 10%;
+}
