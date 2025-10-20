@@ -117,7 +117,7 @@ header .menu li {
 .main p {
   min-width: 50%;
   max-width: 50%;
-  margin-top: -20%; /* Pour placer le txt juste en dessous d'un autre txt */
+  margin-top: -15%; /* Pour placer le txt juste en dessous d'un autre txt */
 }
 
 #jeux {
