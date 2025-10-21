@@ -406,33 +406,38 @@ header .menu li {
   margin-left: 3%;
 }
 
-.mail_valider {
+.box-mail-valider {
   display: flex;
   gap: 10px;
   justify-content: flex-start;
   align-items: center;
   margin-top: -5%;
+  margin-left: 65%;
 }
 
-.mail_valider input {
+.mail input {
   background-color: rgb(0, 0, 0);
   padding: 10px;
-  border-radius: 10px;
-  width: 250px;
-  height: 20px;
+  border-radius: 5px;
+  width: 320px;
+  height: 25px;
   margin-left: 5%;
   margin: 0;
 }
 
-.mail_valider button {
-  padding: 10px 20px;
-  border-radius: 20px;
-  background-color: rgb(213, 0, 0);
-  color: white;
+.valider {
+  margin-top: -12%;
+  display: flex;
+  height: 35px;
+  width: 120px;
+  margin-left: 70%;
 }
 
-.encadre_mail_valider {
-  margin-left: 65%;
+.valider button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: rgb(213, 0, 0);
+  color: white;
 }
 
 /** Footer **/
