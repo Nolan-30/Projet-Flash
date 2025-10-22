@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grille Score</title>
+    <link rel="stylesheet" href="assets/css/score.css" />
+  </head>
+  <body>
+    <div id="main">
+      <header>
+        <p>LOGO</p>
+        <nav>
+          <ol class="menu">
+            <li><a href="accueil.html">Accueil</a></li>
+            <li><a href="score.html">Scores</a></li>
+            <li>
+              <a href="contacte.html" class="bouton rouge">Nous Contacter</a>
+            </li>
+          </ol>
+        </nav>
+      </header>
+    </div>
+
+    <section id="entete">
+      <h1>Scores</h1>
+      <p>
+        Découvrez le classement des meilleurs joueurs sur nos différents jeux !
+        Comparez vos performances et tentez de battre les records établis.
+      </p>
+    </section>
+
+    <!-- On crée un grand tableau dans lequel il y aura plusieurs encadrés -->
+
+    <table class="tableau">
+      <!-- En-tête du tableau -->
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Jeu</th>
+          <th>Joueurs</th>
+          <th>Difficulté</th>
+          <th>Score</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+
+      <!-- Corps du tableau -->
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><img src="assets/images/fc25.jpg" height="50" /> Fifa 25</td>
+          <td>Kameto</td>
+          <td>Difficile</td>
+          <td>1m75</td>
+          <td>29/09/25</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td><img src="assets/images/BO6.jpg" height="50" /> Black Ops 6</td>
+          <td>Gotaga</td>
+          <td>Facile</td>
+          <td>1m85</td>
+          <td>29/09/25</td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td><img src="assets/images/gta6.png" height="50" /> GTA IV</td>
+          <td>Brawks</td>
+          <td>Moyen</td>
+          <td>1m95</td>
+          <td>29/09/25</td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+          <td><img src="assets/images/fc25.jpg" height="50" /> Fifa 25</td>
+          <td>Kameto</td>
+          <td>Dur</td>
+          <td>1m75</td>
+          <td>29/09/25</td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td><img src="assets/images/BO6.jpg" height="50" /> Black Ops 6</td>
+          <td>Gotaga</td>
+          <td>Impossible</td>
+          <td>1m85</td>
+          <td>29/09/25</td>
+        </tr>
+
+        <tr>
+          <td>6</td>
+          <td><img src="assets/images/gta6.png" height="50" /> GTA IV</td>
+          <td>Brawks</td>
+          <td>Hardcore</td>
+          <td>1m95</td>
+          <td>29/09/25</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="txt-manette">
+      <h1>Rejoignez le classement et montrez votre talent !</h1>
+
+      <p>
+        Enchaînez les victoires, améliorez vos temps et grimpez dans le
+        classement général. Chaque partie compte : plus vous jouez, plus vous
+        progressez ! Défiez vos amis et prouvez que vous êtes le meilleur joueur
+        de la communauté.
+      </p>
+
+      <p>
+        Les scores sont mis à jour régulièrement, alors restez connectés pour ne
+        rien manquer des dernières performances.
+      </p>
+
+      <img src="assets/images/manette.png" height="150" />
+    </div>
+
+    <footer>
+      <!-- Créat° d'une box qui contiendra menu logo et contact pr qu'ensuite je puisse mieux manipuler ces 3 box
+       notamment grace a display flex -->
+
+      <div class="box-container">
+        <!-- debut: Logo Slogan-->
+        <div class="box-logo">
+          <h2><strong>LOGO</strong></h2>
+          <p>
+            Plateforme communautaire dédiée aux joueurs — tournois, classements
+            et défis quotidiens pour tous les niveaux.
+          </p>
+        </div>
+        <!-- fin: Logo Slogan-->
+
+        <!-- debut: box-menu-->
+        <div class="box-menu">
+          <h3>Menu</h3>
+          <ul>
+            <li>Accueil</li>
+            <li>Score</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+        <!-- fin: box-menu-->
+
+        <div class="box-contact">
+          <h3>Contactez-nous</h3>
+          <p>Pour toute question ou partenariat, écrivez-nous :</p>
+          <p>contact@web.com</p>
+        </div>
+
+        <div class="box-rs">
+          <img src="assets/images/facebook.jpg" alt="Facebook" height="50" />
+          <img src="assets/images/insta.png" alt="Instagram" height="50" />
+          <img src="assets/images/twitter.jpg" alt="Twitter" height="50" />
+          <img src="assets/images/linkedin.jpg" alt="LinkedIn" height="50" />
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
