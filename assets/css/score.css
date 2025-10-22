@@ -1,0 +1,198 @@
+body {
+  background-color: #070320;
+  font-family: Arial, sans-serif;
+}
+
+#main {
+  max-width: 1240px;
+  width: 1240px;
+  margin: auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header p {
+  margin-left: -3%;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  /* Texte en gras */
+}
+
+header .menu {
+  margin: 0 auto;
+
+  border-radius: 20px 20px 20px 20px;
+
+  padding: 15px;
+
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+header .menu li {
+  list-style-type: none;
+  color: rgb(255, 255, 255);
+}
+
+.bouton {
+  border-radius: 10px;
+  padding: 10px 15px;
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+}
+
+.bouton.rouge {
+  background-color: red;
+  color: #fff;
+}
+
+#entete {
+  padding: 20px;
+  height: 100px;
+  width: 92%;
+
+  margin: 0 auto;
+  margin-top: 5%;
+}
+
+#entete h1 {
+  color: white;
+  text-align: center;
+}
+
+#entete p {
+  text-align: center;
+  justify-content: center;
+  /* centre le texte horizontalement */
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+
+.tableau {
+  margin-left: 5%;
+  margin-top: 5%;
+  width: 90%;
+
+  border-spacing: 0 10px;
+}
+
+.tableau td {
+  padding: 12px 15px;
+  text-align: center;
+  color: black;
+}
+
+.tableau th {
+  padding: 12px 15px;
+  text-align: center;
+  background-color: #ffffff;
+  color: black;
+}
+
+.tableau tr {
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.tableau tr th {
+  color: black;
+}
+
+.tableau img {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+p,
+h1 {
+  color: white;
+}
+
+.txt-manette {
+  margin-left: 5%;
+  margin-top: 25%;
+  min-width: 500px;
+  max-width: 500px;
+  border: red;
+}
+
+.txt-manette {
+  color: white;
+}
+
+.txt-manette img {
+  /* on replace la manette au bon endroit manuellement */
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+  height: 400px;
+  margin-right: 5%;
+  margin-bottom: -60%;
+}
+
+/** Footer **/
+
+footer {
+  color: black;
+  background-color: #fff;
+  width: 100%;
+  height: 250px;
+  list-style: none;
+  margin-top: 10%;
+}
+
+.box-logo p,
+.box-contact p {
+  color: black; /* pr mettre le txt en noir prsk ca ne s'affichait pas */
+}
+
+.box-container {
+  display: flex;
+  width: 94%;
+  height: 160px;
+
+  margin-left: 5%;
+  padding-top: 3%; /* pr creeer un espace en haut prsk margin top ne marche pas */
+
+  gap: 10px;
+}
+
+.box-logo {
+  min-width: 400px;
+  max-width: 400px;
+}
+
+.box-menu {
+  width: 200px;
+  height: 150px;
+
+  margin-left: 5%;
+}
+
+.box-menu ul {
+  /* pr enlever les pts devant le txt */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.box-contact {
+  width: 200px;
+  height: 130px;
+}
+
+.box-rs {
+  width: 300px;
+  height: 100px;
+
+  /* placement */
+  margin-top: 5%;
+  margin-left: 10%;
+}
