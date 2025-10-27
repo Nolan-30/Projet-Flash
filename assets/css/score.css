@@ -83,6 +83,27 @@ header .menu li {
   border-spacing: 0 10px;
 }
 
+.tableau img {
+  /* alignement vertical des images */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* pr aligner les images au txt "jeu"*/
+  margin-left: 30%;
+}
+
+.tableau p {
+  color: black;
+
+  width: 100px;
+  justify-content: center;
+
+  /* placement */
+  margin-left: 80%;
+  margin-top: -10%;
+}
+
 .tableau td {
   padding: 12px 15px;
   text-align: center;
@@ -105,17 +126,14 @@ header .menu li {
   color: black;
 }
 
-.tableau img {
-  vertical-align: middle;
-  margin-right: 10px;
-}
-
 p,
 h1 {
   color: white;
 }
 
 .txt-manette {
+  /* placement */
+
   margin-left: 5%;
   margin-top: 25%;
   min-width: 500px;
@@ -134,7 +152,7 @@ h1 {
   bottom: 30px;
   height: 400px;
   margin-right: 5%;
-  margin-bottom: -60%;
+  margin-bottom: -65%;
 }
 
 /** Footer **/
