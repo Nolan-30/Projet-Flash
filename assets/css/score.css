@@ -23,6 +23,11 @@ header p {
   /* Texte en gras */
 }
 
+.menu li a {
+  text-decoration: none;
+  color: white;
+}
+
 header .menu {
   margin: 0 auto;
 
@@ -32,7 +37,10 @@ header .menu {
 
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 40px;
+  /* placement */
+  width: 400px;
+  margin-left: 25%;
 }
 
 header .menu li {
@@ -142,6 +150,17 @@ h1 {
 }
 
 .txt-manette {
+  color: white;
+}
+
+.txt-manette button {
+  background-color: red;
+  color: white;
+  width: 150px;
+  height: 50px;
+}
+.txt-manette a {
+  text-decoration: none; /* pr que le txt jouer ne soit plus surligné */
   color: white;
 }
 
