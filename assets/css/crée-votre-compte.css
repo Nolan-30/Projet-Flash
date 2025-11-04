@@ -1,0 +1,226 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(#070320);
+    color: white;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent pour fond */
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenu principal */
+.main-content {
+    background: rgba(255, 255, 255, 0.1); /* Fond semi-transparent */
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px); /* Effet flou pour modernité */
+}
+
+.info-section, .password-section, .score-section {
+    margin-bottom: 40px;
+}
+
+.info-section h2, .password-section h2, .score-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+    border-bottom: 2px solid #6a4c93; /* Ligne violette */
+    padding-bottom: 10px;
+}
+
+/* Groupes de formulaire */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ccc;
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1em;
+}
+
+.input-wrapper input::placeholder {
+    color: #aaa;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(-90deg,Orange,red); 
+}
+
+.edit-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #070320;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.edit-btn:hover {
+    background: linear-gradient(#070320);
+    border-radius: 50%;
+}
+
+/* Boutons */
+.save-btn {
+    background: linear-gradient(-90deg,Orange,red);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+}
+
+.full-width {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+.score-section {
+    text-align: center; /* Centrage pour mise en avant */
+}
+
+.score-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#070320); 
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(138, 43, 226, 0.5);
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
+}
+
+.score-card:hover {
+    transform: scale(1.02); /* Effet zoom léger au survol */
+}
+
+.score-icon {
+    font-size: 3em;
+    margin-right: 20px;
+}
+
+.score-content {
+    text-align: left;
+}
+
+.score-label {
+    font-size: 1.1em;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+.score-value {
+    font-size: 3em;
+    font-weight: bold;
+    color: #ffd700; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 5px;
+}
+
+.score-date {
+    font-size: 0.9em;
+    color: #aaa;
+    font-style: italic;
+}
+
+.score-btn {
+    background: linear-gradient(-90deg,Orange,red); 
+    color: white; 
+    font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .header h1 {
+        font-size: 2em;
+    }
+    
+    .main-content {
+        padding: 20px;
+    }
+
+    .score-card {
+        flex-direction: column; /* Empile verticalement sur mobile */
+        text-align: center;
+    }
+
+    .score-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .score-value {
+        font-size: 2.5em;
+    }
+}
