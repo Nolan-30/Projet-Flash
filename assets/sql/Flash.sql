@@ -6,18 +6,25 @@ USE Flash;
 CREATE TABLE utilisateur (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    pseudo VARCHAR(100) NOT NULL,
+    pass_word VARCHAR(255) NOT NULL,
+    pseudo VARCHAR(100) NOT NULL UNIQUE,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) CHARACTER SET 'utf8mb4' ENGINE = InnoDB;
 -- Insertion des utilisateurs
-INSERT INTO utilisateur (email, password, pseudo)
+INSERT INTO utilisateur (email, pass_word, pseudo)
 VALUES ('alice@example.com', 'Alice123', 'Alice'),
     ('bob@example.com', 'Bob123', 'Bob'),
     ('charlie@example.com', 'Charlie123', 'Charlie'),
     ('david@example.com', 'David123', 'David'),
     ('eva@example.com', 'Eva123', 'Eva');
+---Hashage mdp--
+INSERT INTO utilisateur(email, pass_word, pseudo)
+VALUES ("ethan@gmail.com", SHA2("Ethan123", 256), "Ethan");
+-- Mise à jour de l'adresse mail --
+UPDATE utilisateur
+SET email = "ethannn@orange.fr"
+WHERE id = 9;
 -- TABLE SCORE
 CREATE TABLE score (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -203,3 +210,13 @@ VALUES (
         'Trop simple pour moi.',
         '2025-03-10 11:01:22'
     );
+SELECT *
+FROM client;
+SET @nom_client = 'Enrico';
+INSERT INTO client (nom)
+VALUES('henry');
+SET @nom_client = 'henry';
+INSERT INTO client (nom)
+VALUES(@nom_client);
+SELECT *
+FROM client;
