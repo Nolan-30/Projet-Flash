@@ -20,7 +20,11 @@ VALUES ('alice@example.com', 'Alice123', 'Alice'),
     ('eva@example.com', 'Eva123', 'Eva');
 ---Hashage mdp--
 INSERT INTO utilisateur(email, pass_word, pseudo)
-VALUES ("ethan@gmail.com", SHA2("Ethan123", 256), "Ethan");
+VALUES (
+        "ethan@gmail.com",
+        SHA2("Ethan123", 256),
+        "Ethan"
+    );
 -- Mise à jour de l'adresse mail --
 UPDATE utilisateur
 SET email = "ethannn@orange.fr"
@@ -210,13 +214,3 @@ VALUES (
         'Trop simple pour moi.',
         '2025-03-10 11:01:22'
     );
-SELECT *
-FROM client;
-SET @nom_client = 'Enrico';
-INSERT INTO client (nom)
-VALUES('henry');
-SET @nom_client = 'henry';
-INSERT INTO client (nom)
-VALUES(@nom_client);
-SELECT *
-FROM client;
