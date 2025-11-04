@@ -1,12 +1,9 @@
----------------------------------------------------------------------------------------------------
---                       CREATION DE LA BASE DE DONNEE SCORE--
----------------------------------------------------------------------------------------------------
+-- CREATION DE LA BASE DE DONNEE SCORE
 DROP DATABASE IF EXISTS Flash;
 CREATE DATABASE Flash CHARACTER SET 'utf8mb4';
-USE Flash ---------------------------------------------------------------------------------------------------
----                                   RAFIL                                   ---
----------------------------------------------------------------------------------------------------
-CREATE TABLE 'utilisateur' (
+USE Flash;
+-- TABLE UTILISATEUR
+CREATE TABLE utilisateur (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
@@ -14,69 +11,53 @@ CREATE TABLE 'utilisateur' (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) CHARACTER SET 'utf8mb4' ENGINE = InnoDB;
----------------------------------------------------------------------------------------------------
---                Rafil Insertion des mail mdp et pseudos         --
----------------------------------------------------------------------------------------------------
+-- Insertion des utilisateurs
 INSERT INTO utilisateur (email, password, pseudo)
 VALUES ('alice@example.com', 'Alice123', 'Alice'),
     ('bob@example.com', 'Bob123', 'Bob'),
     ('charlie@example.com', 'Charlie123', 'Charlie'),
     ('david@example.com', 'David123', 'David'),
     ('eva@example.com', 'Eva123', 'Eva');
----------------------------------------------------------------------------------------------------
---                   NOLAN --
---                  La difficulté ne pourra être que 1, 2 ou 3 --
----------------------------------------------------------------------------------------------------
+-- TABLE SCORE
 CREATE TABLE score (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    user_id VARCHAR(40) NOT NULL,
+    user_id INT NOT NULL,
     game_id INT UNSIGNED NOT NULL,
     difficulty ENUM('1', '2', '3') NOT NULL,
     score INT NOT NULL,
-    created_at DATE NOT NULL,
+    created_at DATETIME NOT NULL,
     PRIMARY KEY(id)
 ) CHARACTER SET 'utf8mb4' ENGINE = InnoDB;
----------------------------------------------------------------------------------------------------
---                                Pour changer "userr_id" en "user_id"--
----------------------------------------------------------------------------------------------------
-ALTER TABLE score CHANGE COLUMN userr_id user_id INT;
+-- Insertion des scores
 INSERT INTO score (user_id, game_id, difficulty, score, created_at)
-VALUES (1, 1, 1, 10, '2025-04-11');
----------------------------------------------------------------------------------------------------
---                        NOLAN :Insertion des valeurs pour la table Score
----------------------------------------------------------------------------------------------------
-INSERT INTO score (user_id, game_id, difficulty, score, created_at)
-VALUES (2, 1, 1, 15, '2025-04-11 09:30:00'),
-    (3, 2, 2, 45, '2025-04-11 10:00:00'),
-    (1, 2, 3, 120, '2025-04-11 11:15:00'),
-    (4, 1, 2, 30, '2025-04-11 14:00:00'),
-    (2, 3, 3, 200, '2025-04-12 08:00:00'),
-    (3, 1, 2, 55, '2025-04-12 15:30:00'),
-    (4, 2, 1, 5, '2025-04-13 18:00:00'),
-    (1, 3, 1, 25, '2025-04-13 20:00:00'),
-    (5, 1, 3, 90, '2025-04-14 12:00:00'),
-    (5, 2, 2, 65, '2025-04-15 09:45:00'),
-    (2, 2, 3, 150, '2025-04-15 16:20:00'),
-    (3, 3, 1, 12, '2025-04-16 11:00:00'),
-    (4, 3, 2, 75, '2025-04-16 13:00:00'),
-    (5, 3, 3, 180, '2025-04-17 07:30:00'),
-    (1, 1, 2, 40, '2025-04-17 19:00:00'),
-    (2, 1, 3, 110, '2025-04-18 10:40:00'),
-    (3, 2, 1, 8, '2025-04-18 21:00:00'),
-    (4, 2, 3, 135, '2025-04-19 14:15:00');
----------------------------------------------------------------------------------------------------
---                                    ETHAN                                    --
----------------------------------------------------------------------------------------------------
+VALUES (1, 1, '1', 10, '2025-04-11 09:00:00'),
+    (2, 1, '1', 15, '2025-04-11 09:30:00'),
+    (3, 2, '2', 45, '2025-04-11 10:00:00'),
+    (1, 2, '3', 120, '2025-04-11 11:15:00'),
+    (4, 1, '2', 30, '2025-04-11 14:00:00'),
+    (2, 3, '3', 200, '2025-04-12 08:00:00'),
+    (3, 1, '2', 55, '2025-04-12 15:30:00'),
+    (4, 2, '1', 5, '2025-04-13 18:00:00'),
+    (1, 3, '1', 25, '2025-04-13 20:00:00'),
+    (5, 1, '3', 90, '2025-04-14 12:00:00'),
+    (5, 2, '2', 65, '2025-04-15 09:45:00'),
+    (2, 2, '3', 150, '2025-04-15 16:20:00'),
+    (3, 3, '1', 12, '2025-04-16 11:00:00'),
+    (4, 3, '2', 75, '2025-04-16 13:00:00'),
+    (5, 3, '3', 180, '2025-04-17 07:30:00'),
+    (1, 1, '2', 40, '2025-04-17 19:00:00'),
+    (2, 1, '3', 110, '2025-04-18 10:40:00'),
+    (3, 2, '1', 8, '2025-04-18 21:00:00'),
+    (4, 2, '3', 135, '2025-04-19 14:15:00');
+-- TABLE JEU
 CREATE TABLE jeu (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(40) NOT NULL,
     PRIMARY KEY (id)
-) CHARACTER SET 'utf8mb4' ENGINE = INNODB;
+) CHARACTER SET 'utf8mb4' ENGINE = InnoDB;
 INSERT INTO jeu (name)
 VALUES ('Power of Memory');
----------------------------------------------------------------------------------------------------
---                                      NOA                                                --
----------------------------------------------------------------------------------------------------
+-- TABLE MESSAGES
 CREATE TABLE messages (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     game_id INT UNSIGNED NOT NULL,
@@ -84,10 +65,9 @@ CREATE TABLE messages (
     message TEXT,
     created_at DATETIME NOT NULL,
     PRIMARY KEY (id)
-) ---------------------------------------------------------------------------------------------------
---                                      NOA                                                --
----------------------------------------------------------------------------------------------------
-INSERT INTO messages(game_id, user_id, message, created_at)
+) CHARACTER SET 'utf8mb4' ENGINE = InnoDB;
+-- Insertion des messages
+INSERT INTO messages (game_id, user_id, message, created_at)
 VALUES (
         1,
         3,
