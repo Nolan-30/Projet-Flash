@@ -13,12 +13,12 @@ CREATE TABLE utilisateur (
 ) CHARACTER SET 'utf8mb4' ENGINE = InnoDB;
 -- Insertion des utilisateurs
 INSERT INTO utilisateur (email, pass_word, pseudo)
-VALUES ('alice@example.com', 'Alice123', 'Alice'),
-    ('bob@example.com', 'Bob123', 'Bob'),
-    ('charlie@example.com', 'Charlie123', 'Charlie'),
-    ('david@example.com', 'David123', 'David'),
-    ('eva@example.com', 'Eva123', 'Eva');
----Hashage mdp--
+VALUES ('alice@gmail.com', 'Alice123', 'Alice'),
+    ('bob@gmail.com', 'Bob123', 'Bob'),
+    ('charlie@gmail.com', 'Charlie123', 'Charlie'),
+    ('david@gmail.com', 'David123', 'David'),
+    ('eva@gmail.com', 'Eva123', 'Eva');
+-- Hashage mdp--
 INSERT INTO utilisateur(email, pass_word, pseudo)
 VALUES (
         "ethan@gmail.com",
@@ -27,8 +27,24 @@ VALUES (
     );
 -- Mise à jour de l'adresse mail --
 UPDATE utilisateur
-SET email = "ethannn@orange.fr"
-WHERE id = 9;
+SET email = "ethannn@gmail.com"
+WHERE id = 6;
+-- hashage mdp --
+UPDATE utilisateur
+SET pass_word = SHA2("Eva123", 256)
+WHERE id = 5;
+SELECT email,
+    pass_word
+FROM utilisateur
+WHERE email = "eva@gmail.com"
+    AND pass_word = SHA2("Eva123", 256);
+-- Renvoyer l'ID d'un utilisateur en fonct° de son mdp et mail --
+SELECT id,
+    email,
+    pass_word
+FROM utilisateur
+WHERE email = "eva@gmail.com"
+    AND pass_word = SHA2("Eva123", 256);
 -- TABLE SCORE
 CREATE TABLE score (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -214,3 +230,28 @@ VALUES (
         'Trop simple pour moi.',
         '2025-03-10 11:01:22'
     );
+-- Story 6 --
+SELECT jeu.name,
+    utilisateur.pseudo,
+    score.difficulty,
+    score.score,
+    score.created_at
+FROM score
+    INNER JOIN jeu ON score.game_id = jeu.id
+    INNER JOIN utilisateur ON score.user_id = utilisateur.id
+ORDER BY jeu.name,
+    score.difficulty DESC,
+    score.score;
+-- Story 7 --
+SELECT jeu.name,
+    utilisateur.pseudo,
+    score.difficulty,
+    score.score,
+    score.created_at
+FROM score
+    INNER JOIN jeu ON score.game_id = jeu.id
+    INNER JOIN utilisateur ON score.user_id = utilisateur.id
+WHERE utilisateur.pseudo LIKE "%A%"
+ORDER BY jeu.name,
+    score.difficulty DESC,
+    score.score;
