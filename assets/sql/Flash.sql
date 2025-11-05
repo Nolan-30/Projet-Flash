@@ -45,37 +45,6 @@ SELECT id,
 FROM utilisateur
 WHERE email = "eva@gmail.com"
     AND pass_word = SHA2("Eva123", 256);
--- TABLE SCORE
-CREATE TABLE score (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    user_id INT NOT NULL,
-    game_id INT UNSIGNED NOT NULL,
-    difficulty ENUM('1', '2', '3') NOT NULL,
-    score INT NOT NULL,
-    created_at DATETIME NOT NULL,
-    PRIMARY KEY(id)
-) CHARACTER SET 'utf8mb4' ENGINE = InnoDB;
--- Insertion des scores
-INSERT INTO score (user_id, game_id, difficulty, score, created_at)
-VALUES (1, 1, '1', 10, '2025-04-11 09:00:00'),
-    (2, 1, '1', 15, '2025-04-11 09:30:00'),
-    (3, 2, '2', 45, '2025-04-11 10:00:00'),
-    (1, 2, '3', 120, '2025-04-11 11:15:00'),
-    (4, 1, '2', 30, '2025-04-11 14:00:00'),
-    (2, 3, '3', 200, '2025-04-12 08:00:00'),
-    (3, 1, '2', 55, '2025-04-12 15:30:00'),
-    (4, 2, '1', 5, '2025-04-13 18:00:00'),
-    (1, 3, '1', 25, '2025-04-13 20:00:00'),
-    (5, 1, '3', 90, '2025-04-14 12:00:00'),
-    (5, 2, '2', 65, '2025-04-15 09:45:00'),
-    (2, 2, '3', 150, '2025-04-15 16:20:00'),
-    (3, 3, '1', 12, '2025-04-16 11:00:00'),
-    (4, 3, '2', 75, '2025-04-16 13:00:00'),
-    (5, 3, '3', 180, '2025-04-17 07:30:00'),
-    (1, 1, '2', 40, '2025-04-17 19:00:00'),
-    (2, 1, '3', 110, '2025-04-18 10:40:00'),
-    (3, 2, '1', 8, '2025-04-18 21:00:00'),
-    (4, 2, '3', 135, '2025-04-19 14:15:00');
 -- TABLE JEU
 CREATE TABLE jeu (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -84,14 +53,52 @@ CREATE TABLE jeu (
 ) CHARACTER SET 'utf8mb4' ENGINE = InnoDB;
 INSERT INTO jeu (name)
 VALUES ('Power of Memory');
+-- TABLE SCORE
+CREATE TABLE score (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    game_id INT UNSIGNED NOT NULL,
+    difficulty ENUM('1', '2', '3') NOT NULL,
+    score INT NOT NULL,
+    created_at DATETIME NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY (user_id) REFERENCES utilisateur(id),
+    FOREIGN KEY (game_id) REFERENCES jeu(id)
+) CHARACTER SET 'utf8mb4' ENGINE = InnoDB;
+-- Insertion des scores
+INSERT INTO score (user_id, game_id, difficulty, score, created_at)
+VALUES (1, 1, '1', 10, '2025-04-11 09:00:00'),
+    (2, 1, '1', 15, '2025-04-11 09:30:00'),
+    (3, 1, '2', 45, '2025-04-11 10:00:00'),
+    (1, 1, '3', 120, '2025-04-11 11:15:00'),
+    (4, 1, '2', 30, '2025-04-11 14:00:00'),
+    (2, 1, '3', 200, '2025-04-12 08:00:00'),
+    (3, 1, '2', 55, '2025-04-12 15:30:00'),
+    (4, 1, '1', 5, '2025-04-13 18:00:00'),
+    (1, 1, '1', 25, '2025-04-13 20:00:00'),
+    (5, 1, '3', 90, '2025-04-14 12:00:00'),
+    (5, 1, '2', 65, '2025-04-15 09:45:00'),
+    (2, 1, '3', 150, '2025-04-15 16:20:00'),
+    (3, 1, '1', 12, '2025-04-16 11:00:00'),
+    (4, 1, '2', 75, '2025-04-16 13:00:00'),
+    (5, 1, '3', 180, '2025-04-17 07:30:00'),
+    (1, 1, '2', 40, '2025-04-17 19:00:00'),
+    (2, 1, '3', 110, '2025-04-18 10:40:00'),
+    (3, 1, '1', 8, '2025-04-18 21:00:00'),
+    (4, 1, '3', 135, '2025-04-19 14:15:00');
+-- Story 8 --
+INSERT INTO score (user_id, game_id, difficulty, score, created_at)
+VALUES (2, 1, '3', 250, NOW());
 -- TABLE MESSAGES
 CREATE TABLE messages (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
     game_id INT UNSIGNED NOT NULL,
-    user_id INT UNSIGNED NOT NULL,
-    message TEXT,
-    created_at DATETIME NOT NULL,
-    PRIMARY KEY (id)
+    message TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    -- Story 9 --
+    FOREIGN KEY (user_id) REFERENCES utilisateur(id),
+    FOREIGN KEY (game_id) REFERENCES jeu(id)
 ) CHARACTER SET 'utf8mb4' ENGINE = InnoDB;
 -- Insertion des messages
 INSERT INTO messages (game_id, user_id, message, created_at)
@@ -230,6 +237,145 @@ VALUES (
         'Trop simple pour moi.',
         '2025-03-10 11:01:22'
     );
+-- Story 11 --
+CREATE TABLE messages_prives (
+    id INT NOT NULL AUTO_INCREMENT,
+    user_sender_id INT NOT NULL,
+    user_receiver_id INT NOT NULL,
+    message TEXT NOT NULL,
+    is_read TINYINT(1) DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    read_at DATETIME DEFAULT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_sender_id) REFERENCES utilisateur(id),
+    FOREIGN KEY (user_receiver_id) REFERENCES utilisateur(id)
+) CHARACTER SET 'utf8mb4' ENGINE = InnoDB;
+-- Story 12 --
+INSERT INTO messages_prives (
+        user_sender_id,
+        user_receiver_id,
+        message,
+        is_read,
+        created_at
+    )
+VALUES (
+        1,
+        2,
+        'Ce jeu est trop facile !',
+        0,
+        '2025-11-01 18:23:00'
+    ),
+    (
+        2,
+        1,
+        'J’ai amélioré mon score hier !',
+        1,
+        '2025-11-01 18:25:00'
+    ),
+    (
+        3,
+        1,
+        'Tu ne va jamais battre mon score',
+        0,
+        '2025-11-02 14:42:00'
+    ),
+    (
+        1,
+        3,
+        'Pourquoi pas, on joue à quelle heure ?',
+        0,
+        '2025-11-02 14:45:00'
+    ),
+    (4, 2, 'Enfin !!!', 1, '2025-11-03 19:00:00'),
+    (
+        2,
+        4,
+        'GG ! Tu as utilisé quelle stratégie ?',
+        0,
+        '2025-11-03 19:03:00'
+    ),
+    (
+        1,
+        4,
+        'On se refait une partie demain ?',
+        0,
+        '2025-11-03 21:10:00'
+    ),
+    (
+        4,
+        1,
+        'Avec plaisir ! Je serai dispo vers 20h.',
+        0,
+        '2025-11-03 21:12:00'
+    ),
+    (
+        3,
+        2,
+        'T’as vu la nouvelle mise à jour du jeu ?',
+        1,
+        '2025-11-04 10:30:00'
+    ),
+    (
+        2,
+        3,
+        'Oui, les cartes sont beaucoup mieux !',
+        0,
+        '2025-11-04 10:35:00'
+    ),
+    (
+        4,
+        3,
+        'Je trouve que le nouveau design est pas mal',
+        0,
+        '2025-11-04 17:40:00'
+    ),
+    (
+        3,
+        4,
+        'C est trop dur ',
+        0,
+        '2025-11-04 17:45:00'
+    ),
+    (
+        1,
+        2,
+        'J’ai battu mon record 3 parties d’affilée !',
+        1,
+        '2025-11-05 11:00:00'
+    ),
+    (
+        2,
+        1,
+        'Incroyable, t’es imbattable !',
+        0,
+        '2025-11-05 11:05:00'
+    ),
+    (
+        4,
+        1,
+        'Tu joues encore ce soir ?',
+        0,
+        '2025-11-05 13:30:00'
+    ),
+    (1, 4, 'Oui.', 0, '2025-11-05 13:35:00'),
+    (
+        2,
+        3,
+        'On essaye de battre le record ?',
+        0,
+        '2025-11-05 15:20:00'
+    ),
+    (3, 2, 'Carrément !', 0, '2025-11-05 15:22:00'),
+    (1, 3, 'Trop bien !', 0, '2025-11-05 16:00:00'),
+    (3, 1, 'Merci !', 0, '2025-11-05 16:05:00');
+INSERT INTO messages_prives (
+        user_sender_id,
+        user_receiver_id,
+        message,
+        is_read,
+        created_at
+    )
+VALUES (1, 2, 'J ai le record !', 0, NOW());
 -- Story 6 --
 SELECT jeu.name,
     utilisateur.pseudo,
