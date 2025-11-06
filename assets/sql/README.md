@@ -1,116 +1,118 @@
-# README — Base de données **Flash (Score)**
+⚡ Base de Données – Flash (Score)
 
-## 1. But du projet
+🗃️ Projet SQL complet pour la gestion des utilisateurs, jeux, scores, et messageries (publiques & privées).
 
-Ce dépôt contient le script SQL de création et de peuplement d'une petite base de données nommée **Flash**. Cette base sert à gérer des utilisateurs, des jeux, des scores, des messages publics et des messages privés
+🎯 1. Objectif du projet
 
----
+Ce projet contient le script SQL complet permettant de créer et de remplir une base de données nommée Flash.
+Elle permet de gérer :
+🎮 des jeux,
+👤 des utilisateurs,
+🏆 leurs scores,
+💬 des messages publics,
+📩 ainsi que des messages privés.
 
-## 2. Contenu principal
+📦 2. Contenu principal
 
-Le script SQL réalise :
+Le script SQL exécute automatiquement :
 
-- Création de la base `Flash`
-- Création des tables : `utilisateur`, `jeu`, `score`, `messages`, `messages_prives`.
-- Insertion d'un jeu de données d'exemple (utilisateurs, scores, messages, messages privés).
+🔹 Création de la base Flash
 
----
+🔹 Création des tables :
 
-## 3. Prérequis
+👤 Utilisateur
 
-- MySQL (ou MariaDB) installé et accessible.
-- Un client SQL (MySQL Workbench, ou VS Code + SQLTools).
-- Permissions suffisantes pour créer/supprimer une base.
+🎮 Jeu
 
----
+🏆 Score
 
-## 4. Comment exécuter le script
+💬 Messages
 
-1. Ouvrir votre client SQL et vous connecter à votre serveur local (ex : `root@localhost`).
-2. Ouvrir le fichier SQL (le script fourni).
-3. Exécuter tout le script. Il contient `DROP DATABASE IF EXISTS Flash;` — attention, ça supprimera une base `Flash` existante.
+📩 Messages_prives
 
----
+🔹 Insertion d’un jeu de données complet (exemples d’utilisateurs, scores, messages, etc.)
 
-## 5. Schéma des tables (récapitulatif)
+🧩 3. Prérequis
 
-### `utilisateur`
+Avant d’exécuter le script, assurez-vous d’avoir :
 
-- `id` INT AUTO_INCREMENT PRIMARY KEY
-- `email` VARCHAR(255) NOT NULL UNIQUE
-- `pass_word` VARCHAR(255) NOT NULL
-- `pseudo` VARCHAR(100) NOT NULL UNIQUE
-- `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP
-- `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+✅ MySQL ou MariaDB installé
 
-### `jeu`
+✅ Un client SQL (ex. : MySQL Workbench ou VS Code + SQLTools)
 
-- `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY
-- `name` VARCHAR(40) NOT NULL
+✅ Les permissions nécessaires pour créer / supprimer une base de données
 
-### `score`
+⚙️ 4. Exécution du script
 
-- `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY
-- `user_id` INT NOT NULL — référence `utilisateur(id)`
-- `game_id` INT UNSIGNED NOT NULL — référence `jeu(id)`
-- `difficulty` ENUM('1','2','3') NOT NULL
-- `score` INT NOT NULL
-- `created_at` DATETIME NOT NULL
+1️⃣ Ouvrez votre client SQL et connectez-vous à votre serveur local
+(ex : root@localhost)
 
-### `messages`
+2️⃣ Chargez le fichier SQL du projet (flash.sql)
 
-- `id` INT AUTO_INCREMENT PRIMARY KEY
-- `user_id` INT NOT NULL — référence `utilisateur(id)`
-- `game_id` INT UNSIGNED NOT NULL — référence `jeu(id)`
-- `message` TEXT NOT NULL
-- `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP
+3️⃣ Exécutez tout le script
 
-### `messages_prives`
+⚠️ Le script contient :
 
-- `id` INT AUTO_INCREMENT PRIMARY KEY
-- `user_sender_id` INT NOT NULL — FK -> `utilisateur(id)`
-- `user_receiver_id` INT NOT NULL — FK -> `utilisateur(id)`
-- `message` TEXT NOT NULL
-- `is_read` TINYINT(1) DEFAULT 0
-- `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP
-- `read_at` DATETIME DEFAULT NULL
+```SQL
+DROP DATABASE IF EXISTS Flash;
+Cela supprime toute base Flash déjà existante avant de la recréer.
 
-Tous les `ENGINE = InnoDB` et `CHARACTER SET = 'utf8mb4'`.
+🧱 5. Schéma des tables
+👤 Table utilisateur
 
----
+id	INT AUTO_INCREMENT PRIMARY KEY
+email	VARCHAR(255) UNIQUE	--Adresse e-mail
+pass_word	VARCHAR(255)	--Mot de passe (haché ou non)
+pseudo	VARCHAR(100) UNIQUE	--Nom d’utilisateur
+created_at	DATETIME	--Date de création
+updated_at	DATETIME	--Mise à jour automatique
 
-## 6. Points importants et bonnes pratiques
+🎮 Table jeu
 
-- **Hashage des mots de passe** : le script utilise `SHA2('password', 256)` pour insérer certains mots de passe. _Important_ : SHA-256 seul **n'est pas** la meilleure pratique pour stocker des mots de passe en production
+id	INT UNSIGNED AUTO_INCREMENT PRIMARY KEY	-- Identifiant du jeu
+name	VARCHAR(40) NOT NULL	-- Nom du jeu
 
-- **Unique constraints** : `email` et `pseudo` sont `UNIQUE`. Évitez des `INSERT` qui dupliquent ces valeurs ou gérez-les via `INSERT IGNORE` / `ON DUPLICATE KEY UPDATE` si nécessaire.
+🏆 Table score
 
----
+id	INT UNSIGNED AUTO_INCREMENT PRIMARY KEY	-- Identifiant du score
+user_id	INT NOT NULL	-- 🔗 Référence à utilisateur(id)
+game_id	INT UNSIGNED NOT NULL	-- 🔗 Référence à jeu(id)
+difficulty	ENUM('1','2','3')	-- Niveau de difficulté
+score	INT	-- Score obtenu
+created_at	DATETIME	-- Date de la partie
 
-## 7. Requêtes utiles incluses (exemples)
+💬 Table messages
 
-- **Hashage / insertion** :
 
-```sql
+id	INT AUTO_INCREMENT PRIMARY KEY	-- Identifiant du message
+user_id	INT NOT NULL	-- 🔗 Référence à utilisateur(id)
+game_id	INT UNSIGNED NOT NULL	-- 🔗 Référence à jeu(id)
+message	TEXT	-- Contenu du message
+created_at	DATETIME	-- Date d’envoi
+
+📩 Table messages_prives
+
+id	INT AUTO_INCREMENT PRIMARY KEY	-- Identifiant du message privé
+user_sender_id	INT NOT NULL	-- 🔗 Expéditeur (utilisateur.id)
+user_receiver_id	INT NOT NULL	-- 🔗 Destinataire (utilisateur.id)
+message	TEXT NOT NULL	-- Contenu du message
+is_read	TINYINT(1) DEFAULT 0	-- Message lu (1) ou non lu (0)
+created_at	DATETIME	-- Date d’envoi
+read_at	DATETIME DEFAULT NULL	-- Date de lecture
+
+🧠 Toutes les tables utilisent :
+ENGINE = InnoDB et CHARACTER SET = utf8mb4
+
+🧠 6. Bonnes pratiques et remarques
+
+
+🧱 Contraintes d’unicité :
+Les champs email et pseudo sont UNIQUE.
+➤ Évitez les doublons ou utilisez INSERT IGNORE / ON DUPLICATE KEY UPDATE.
+
+🧮 7. Exemples de requêtes utiles
+➕ Insertion avec mot de passe haché
 INSERT INTO utilisateur (email, pass_word, pseudo)
-VALUES ('eva@gmail.com', SHA2('Eva123',256), 'Eva');
-```
+VALUES ('eva@gmail.com', SHA2('Eva123', 256), 'Eva');
 
-- **Vérifier authentification** :
-
-```SQL
-SELECT id, email, pseudo
-FROM utilisateur
-WHERE email = ? AND pass_word = SHA2(?, 256)
-LIMIT 1;
-```
-
-- **Lister scores avec jeux et utilisateurs** :
-
-```SQL
-SELECT jeu.name, utilisateur.pseudo, score.difficulty, score.score, score.created_at
-FROM score
-INNER JOIN jeu ON score.game_id = jeu.id
-INNER JOIN utilisateur ON score.user_id = utilisateur.id
-ORDER BY jeu.name, score.difficulty DESC, score.score;
 ```
