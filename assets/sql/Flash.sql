@@ -376,6 +376,41 @@ INSERT INTO messages_prives (
         created_at
     )
 VALUES (1, 2, 'J ai le record !', 0, NOW());
+SELECT sender.pseudo,
+    receiver.pseudo,
+    messages_prives.message,
+    messages_prives.created_at,
+    messages_prives.is_read
+FROM messages_prives
+    INNER JOIN utilisateur sender ON messages_prives.user_sender_id = sender.id
+    INNER JOIN utilisateur receiver ON messages_prives.user_receiver_id = receiver.id
+    INNER JOIN (
+        SELECT user_2_id,
+            MAX(created_at) AS max_created_at
+        FROM (
+                SELECT user_receiver_id AS user_2_id,
+                    created_at
+                FROM messages_prives
+                WHERE user_sender_id = 1
+                UNION ALL
+                SELECT user_sender_id AS user_2_id,
+                    created_at
+                FROM messages_prives
+                WHERE user_receiver_id = 1
+            ) AS toutes_les_conversations
+        GROUP BY user_2_id
+    ) AS last_msg ON messages_prives.created_at = last_msg.max_created_at
+    AND (
+        (
+            messages_prives.user_sender_id = 1
+            AND messages_prives.user_receiver_id = last_msg.user_2_id
+        )
+        OR (
+            messages_prives.user_receiver_id = 1
+            AND messages_prives.user_sender_id = last_msg.user_2_id
+        )
+    )
+ORDER BY messages_prives.created_at DESC;
 -- Story 6 --
 SELECT jeu.name,
     utilisateur.pseudo,
