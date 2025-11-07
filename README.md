@@ -101,10 +101,11 @@ created_at	DATETIME	-- Date d’envoi
 read_at	DATETIME DEFAULT NULL	-- Date de lecture
 
 🧠 Toutes les tables utilisent :
-ENGINE = InnoDB et CHARACTER SET = utf8mb4
+Toutes les tables utilisent le moteur InnoDB afin de respecter les contraintes de clés étrangères.
+On utiise l'encodage "utf8mb4" pour pouvoir mettre tous les caractères possible dans notre base de donnés.
 
 🧠 6. Bonnes pratiques et remarques
-
+Convention de nommage des tables et des attributs : toute en minuscule et avec un underscore
 
 🧱 Contraintes d’unicité :
 Les champs email et pseudo sont UNIQUE.
@@ -114,5 +115,6 @@ Les champs email et pseudo sont UNIQUE.
 ➕ Insertion avec mot de passe haché
 INSERT INTO utilisateur (email, pass_word, pseudo)
 VALUES ('eva@gmail.com', SHA2('Eva123', 256), 'Eva');
+
 
 ```
