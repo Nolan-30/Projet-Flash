@@ -1,0 +1,280 @@
+/* carte */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0a0a23;
+  color: #fff;
+  text-align: center;
+}
+
+/* Partie Nolan */
+
+#main {
+  max-width: 1240px;
+  margin-left: 5%;
+}
+
+/**
+* Header
+*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* pr mettre le Texte en gras */
+header p {
+  margin-left: -4%;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: white;
+}
+
+header .menu {
+  margin: 0 auto;
+
+  border-radius: 20px 20px 20px 20px;
+
+  padding: 15px;
+
+  display: flex;
+  gap: 20px;
+  gap: 40px;
+  /* placement */
+  width: 400px;
+  margin-left: 55%;
+}
+
+header .menu li {
+  margin-left: +5%;
+  list-style-type: none;
+  color: rgb(255, 255, 255);
+}
+
+.bouton {
+  border-radius: 10px;
+  padding: 10px 15px;
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+}
+
+.bouton.rouge {
+  background-color: red;
+  color: #fff;
+}
+
+/*  Partie carte  */
+.map-section {
+  padding: 60px 20px;
+}
+
+.map-section h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.map-section p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+.map-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.map-container img {
+  width: 100%;
+  border-radius: 8px;
+}
+/*  Partie contact  */
+.contact-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 50px auto;
+  font-size: 14px;
+}
+
+.contact-info > div {
+  text-align: center;
+}
+
+/* séparateur vertical */
+.divider {
+  width: 1px;
+  height: 40px;
+  background: #444;
+}
+
+/*  Réseaux sociaux  */
+.socials span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #ccc;
+}
+.icons img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain; /* garde le ratio de l’image */
+  border-radius: 50%;
+  padding: 6px; /* espace intérieur */
+  transition: background 0.3s;
+}
+
+.icons img:hover {
+  background: #ffff;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+.contact-container h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+.contact-container p {
+  font-size: 1em;
+  margin-bottom: 1.5em;
+}
+
+.form-group {
+  margin-bottom: 1em;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5em;
+  margin: 0.5em 0;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-group input {
+  height: 2em;
+}
+
+.form-group textarea {
+  height: 10em;
+  resize: vertical;
+}
+
+button {
+  background-color: #d80027;
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: #cc0000;
+}
+
+.top-line {
+  border: 0;
+  border-top: 1px solid white;
+  margin: 0 auto;
+  width: 90%;
+}
+/*.  Header. */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header p {
+  margin-left: -3%;
+  color: white;
+  font-size: 24px;
+  font-weight: bold; /* Texte en gras */
+}
+
+header .menu {
+  margin: 0 auto;
+  border-radius: 20px 20px 20px 20px;
+  padding: 15px;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+header .menu li {
+  list-style-type: none;
+  color: rgb(255, 255, 255);
+}
+
+.bouton {
+  border-radius: 10px;
+  padding: 10px 15px;
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+}
+
+.bouton.rouge {
+  background-color: red;
+  color: #fff;
+}
+
+footer {
+  color: black;
+  background-color: #fff;
+
+  list-style: none;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 0 25px;
+}
+.logo-slogan {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 25%;
+}
+.contact {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #000;
+}
+.contact li {
+  list-style: none;
+}
+.contact h3 {
+  text-align: center;
+}
+.rs {
+  display: flex;
+  flex-direction: column;
+}
+.menu ol li {
+  color: #000;
+}
+.menu h3 ol {
+  list-style: none;
+}

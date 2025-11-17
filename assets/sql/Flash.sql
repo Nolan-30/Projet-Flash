@@ -237,6 +237,20 @@ VALUES (
         'Trop simple pour moi.',
         '2025-03-10 11:01:22'
     );
+-- Story 10
+SELECT m.message AS Contenu_du_message,
+    u.pseudo AS Nom_du_joueur,
+    m.created_at AS Date_et_heure_du_message,
+    (
+        CASE
+            WHEN m.user_id = 1 THEN TRUE
+            ELSE FALSE
+        END
+    ) AS isSender
+FROM messages m
+    JOIN utilisateur u ON m.user_id = u.id
+WHERE m.created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR)
+ORDER BY m.created_at ASC;
 -- Story 11 --
 CREATE TABLE messages_prives (
     id INT NOT NULL AUTO_INCREMENT,
@@ -422,7 +436,7 @@ FROM score
     INNER JOIN utilisateur ON score.user_id = utilisateur.id
 ORDER BY jeu.name,
     score.difficulty DESC,
-    score.score;
+    score.score DESC;
 -- Story 7 --
 SELECT jeu.name,
     utilisateur.pseudo,

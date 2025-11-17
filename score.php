@@ -183,9 +183,11 @@
         <div class="box-menu">
           <h3>Menu</h3>
           <ul>
-            <li>Accueil</li>
-            <li>Score</li>
-            <li>Contact</li>
+            <li><a href="accueil.html">Accueil</a></li>
+            <li><a href="score.html">Scores</a></li>
+            <li>
+              <a href="contacte.html">Nous Contacter</a>
+            </li>
           </ul>
         </div>
         <!-- fin: box-menu-->

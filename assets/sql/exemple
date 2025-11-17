@@ -1,0 +1,45 @@
+avant de corriger par du principe que y a une table qui s 'appl departement et une autre qui s' appele employee Objectif 1: Afficher le nom de famille de l 'employé et le salaire, en s' assurant que la colonne des salaires porte le titre "Rémunération_Annuelle" dans le résultat.;
+SELECT nom_famille,
+    salaire AS Remunération_Annuelle
+FROM employee;
+---------------------------------------------------------------------------
+--Objectif 2 : Afficher les prénoms et noms de famille de tous les employés dont le montant du salaire n'excède pas 60 000.;
+SELECT prenom,
+    nom_famille
+FROM employee
+WHERE salaire < 60000;
+--Objectif 3A : Afficher uniquement le nom de famille des employés dont le salaire est compris entre 55 000 et 65 000 (ces deux montants inclus).
+SELECT nom_famille
+FROM employee
+WHERE salaire BETWEEN 55000 AND 65000;
+--Objectif 3B : Afficher les noms des départements qui sont situés soit à Paris, soit à Lyon.
+SELECT nom_dept
+FROM departement
+WHERE ville in ('Paris', 'Lyon');
+--Objectif 4 : Afficher le nom de famille des employés pour lesquels aucune information (une valeur nulle) n'est enregistrée dans la colonne du pourcentage de prime.
+SELECT nom_famille
+FROM employee
+WHERE prime_pct IS NULL;
+--Objectif 5 : Afficher le prénom des employés dont le prénom finit par la lettre "e".
+SELECT prenom
+FROM employee
+WHERE prenom "%e";
+Partie 2: Jointures Objectif 6: Afficher le nom de famille de chaque employé à côté du nom du département auquel il appartient.
+SELECT employee.nom_famille,
+    departement.ville --Partie 3 : Agrégation et Groupement
+    --Objectif 7 : Déterminer le nombre exact d'employés qui ont une prime enregistrée 
+SELECT COUNT(prime_pct)
+FROM employee
+WHERE prime_pct IS NOT NULL;
+Objectif 8: Pour chaque département (identifié par son ID),
+calculer le total des salaires versés et la moyenne des salaires de ce département.
+SELECT SUM(salaire) as total_salaire AVG(id_dept) as moyenne_salaire_departement --Partie 4 : Sous-requêtes
+    --Objectif 9 : Afficher le nom de famille de l'employé dont le salaire est le plus élevé de toute l'entreprise, en utilisant un processus en deux étapes où la première étape trouve le salaire maximum.
+SELECT MAX(salaire) as max_salaire
+WHERE nom_famille =(
+        Objectif 10: Afficher le prénom et le nom de famille des employés qui travaillent dans les départements situés géographiquement à Paris ou à Toulouse,
+        en utilisant un processus en deux étapes où la première étape trouve les identifiants des départements concernés.
+        SELECT nom_famille,
+            prenom
+        FROM employee
+        WHERE employee.ville IN ("Paris", "Lyon");
