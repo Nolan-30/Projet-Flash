@@ -1,210 +1,156 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grille Score</title>
-    <link rel="stylesheet" href="assets/css/score.css" />
-  </head>
-  <body>
-    <div id="main">
-      <header>
-        <p>LOGO</p>
-        <nav>
-          <ol class="menu">
-            <li><a href="accueil.html">Accueil</a></li>
-            <li><a href="score.html">Scores</a></li>
-            <li>
-              <a href="contacte.html" class="bouton rouge">Nous Contacter</a>
-            </li>
-          </ol>
-        </nav>
-      </header>
-    </div>
 
-    <section id="entete">
-      <h1>Scores</h1>
-      <p>
-        Découvrez le classement des meilleurs joueurs sur nos différents jeux !
-        Comparez vos performances et tentez de battre les records établis.
-      </p>
-    </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grille Score</title>
+  <link rel="stylesheet" href="assets/css/score.css" />
+  <link rel="stylesheet" href="assets/css/header.css" />
+</head>
 
-    <!-- On crée un grand tableau dans lequel il y aura plusieurs encadrés -->
+<body>
+  <div id="main">
+    <?php
+    include './partials/header.php';
+    ?>
+  </div>
 
-    <table class="tableau">
-      <!-- En-tête du tableau -->
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Jeu</th>
-          <th>Joueurs</th>
-          <th>Difficulté</th>
-          <th>Score</th>
-          <th>Date</th>
-        </tr>
-      </thead>
+  <section id="entete">
+    <h1>Scores</h1>
+    <p>
+      Découvrez le classement des meilleurs joueurs sur nos différents jeux !
+      Comparez vos performances et tentez de battre les records établis.
+    </p>
+  </section>
 
-      <!-- Corps du tableau -->
+  <!-- On crée un grand tableau dans lequel il y aura plusieurs encadrés -->
 
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>
-            <img src="assets/images/fc25.jpg" height="50" />
-            <p>Fifa 25</p>
-          </td>
+  <table class="tableau">
+    <!-- En-tête du tableau -->
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Jeu</th>
+        <th>Joueurs</th>
+        <th>Difficulté</th>
+        <th>Score</th>
+        <th>Date</th>
+      </tr>
+    </thead>
 
-          <td>Kameto</td>
-          <td>Difficile</td>
-          <td>1m75</td>
-          <td>29/09/25</td>
-        </tr>
+    <!-- Corps du tableau -->
 
-        <tr>
-          <td>2</td>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>
+          <img src="assets/images/fc25.jpg" height="50" />
+          <p>Fifa 25</p>
+        </td>
 
-          <td>
-            <img src="assets/images/BO6.jpg" height="50" />
+        <td>Kameto</td>
+        <td>Difficile</td>
+        <td>1m75</td>
+        <td>29/09/25</td>
+      </tr>
 
-            <!-- Utilisation de la balise "p" pour chaque Jeu afin de mieux gérer leur placement en CSS-->
-            <p>Black OPS 6</p>
-          </td>
+      <tr>
+        <td>2</td>
 
-          <td>Gotaga</td>
-          <td>Facile</td>
-          <td>1m85</td>
-          <td>29/09/25</td>
-        </tr>
+        <td>
+          <img src="assets/images/BO6.jpg" height="50" />
 
-        <tr>
-          <td>3</td>
+          <!-- Utilisation de la balise "p" pour chaque Jeu afin de mieux gérer leur placement en CSS-->
+          <p>Black OPS 6</p>
+        </td>
 
-          <td>
-            <img src="assets/images/gta6.png" height="50" width="90" />
-            <p>GTA VI</p>
-          </td>
+        <td>Gotaga</td>
+        <td>Facile</td>
+        <td>1m85</td>
+        <td>29/09/25</td>
+      </tr>
 
-          <td>Brawks</td>
-          <td>Moyen</td>
-          <td>1m95</td>
-          <td>29/09/25</td>
-        </tr>
+      <tr>
+        <td>3</td>
 
-        <tr>
-          <td>4</td>
+        <td>
+          <img src="assets/images/gta6.png" height="50" width="90" />
+          <p>GTA VI</p>
+        </td>
 
-          <td>
-            <img src="assets/images/fc25.jpg" height="50" />
-            <p>Fifa 25</p>
-          </td>
+        <td>Brawks</td>
+        <td>Moyen</td>
+        <td>1m95</td>
+        <td>29/09/25</td>
+      </tr>
 
-          <td>Kameto</td>
-          <td>Dur</td>
-          <td>1m75</td>
-          <td>29/09/25</td>
-        </tr>
+      <tr>
+        <td>4</td>
 
-        <tr>
-          <td class="ops">5</td>
+        <td>
+          <img src="assets/images/fc25.jpg" height="50" />
+          <p>Fifa 25</p>
+        </td>
 
-          <td>
-            <img src="assets/images/BO6.jpg" height="50" />
-            <p>Black OPS 6</p>
-          </td>
+        <td>Kameto</td>
+        <td>Dur</td>
+        <td>1m75</td>
+        <td>29/09/25</td>
+      </tr>
 
-          <td>Gotaga</td>
-          <td>Impossible</td>
-          <td>1m85</td>
-          <td>29/09/25</td>
-        </tr>
+      <tr>
+        <td class="ops">5</td>
 
-        <tr>
-          <td>6</td>
-          <td>
-            <img src="assets/images/gta6.png" height="50" width="90" />
-            <p>GTA VI</p>
-          </td>
-          <td>Brawks</td>
-          <td>Hardcore</td>
-          <td>1m95</td>
-          <td>29/09/25</td>
-        </tr>
-      </tbody>
-    </table>
+        <td>
+          <img src="assets/images/BO6.jpg" height="50" />
+          <p>Black OPS 6</p>
+        </td>
 
-    <div class="txt-manette">
-      <h1>Rejoignez le classement et montrez votre talent !</h1>
+        <td>Gotaga</td>
+        <td>Impossible</td>
+        <td>1m85</td>
+        <td>29/09/25</td>
+      </tr>
 
-      <p>
-        Enchaînez les victoires, améliorez vos temps et grimpez dans le
-        classement général. Chaque partie compte : plus vous jouez, plus vous
-        progressez ! Défiez vos amis et prouvez que vous êtes le meilleur joueur
-        de la communauté.
-      </p>
+      <tr>
+        <td>6</td>
+        <td>
+          <img src="assets/images/gta6.png" height="50" width="90" />
+          <p>GTA VI</p>
+        </td>
+        <td>Brawks</td>
+        <td>Hardcore</td>
+        <td>1m95</td>
+        <td>29/09/25</td>
+      </tr>
+    </tbody>
+  </table>
 
-      <p>
-        Les scores sont mis à jour régulièrement, alors restez connectés pour ne
-        rien manquer des dernières performances.
-      </p>
-      <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta charset="UTF-8" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
-          <title>Document</title>
-        </head>
-        <body></body>
-      </html>
-      <button><a href="jeu.html">Jouer</a></button>
+  <div class="txt-manette">
+    <h1>Rejoignez le classement et montrez votre talent !</h1>
 
-      <img src="assets/images/manette.png" height="150" />
-    </div>
+    <p>
+      Enchaînez les victoires, améliorez vos temps et grimpez dans le
+      classement général. Chaque partie compte : plus vous jouez, plus vous
+      progressez ! Défiez vos amis et prouvez que vous êtes le meilleur joueur
+      de la communauté.
+    </p>
 
-    <footer>
-      <!-- Créat° d'une box qui contiendra menu logo et contact pr qu'ensuite je puisse mieux manipuler ces 3 box
-       notamment grace a display flex -->
+    <p>
+      Les scores sont mis à jour régulièrement, alors restez connectés pour ne
+      rien manquer des dernières performances.
+    </p>
 
-      <div class="box-container">
-        <!-- debut: Logo Slogan-->
-        <div class="box-logo">
-          <h2><strong>LOGO</strong></h2>
-          <p>
-            Plateforme communautaire dédiée aux joueurs — tournois, classements
-            et défis quotidiens pour tous les niveaux.
-          </p>
-        </div>
-        <!-- fin: Logo Slogan-->
+    <button><a href="jeu.html">Jouer</a></button>
 
-        <!-- debut: box-menu-->
-        <div class="box-menu">
-          <h3>Menu</h3>
-          <ul>
-            <li><a href="accueil.html">Accueil</a></li>
-            <li><a href="score.html">Scores</a></li>
-            <li>
-              <a href="contacte.html">Nous Contacter</a>
-            </li>
-          </ul>
-        </div>
-        <!-- fin: box-menu-->
+    <img src="assets/images/manette.png" height="150" />
+  </div>
+  <?php
+  include './footer.php'
+  ?>
 
-        <div class="box-contact">
-          <h3>Contactez-nous</h3>
-          <p>Pour toute question ou partenariat, écrivez-nous :</p>
-          <p>contact@web.com</p>
-        </div>
 
-        <div class="box-rs">
-          <img src="assets/images/facebook.jpg" alt="Facebook" height="50" />
-          <img src="assets/images/insta.png" alt="Instagram" height="50" />
-          <img src="assets/images/twitter.jpg" alt="Twitter" height="50" />
-          <img src="assets/images/linkedin.jpg" alt="LinkedIn" height="50" />
-        </div>
-      </div>
-    </footer>
-  </body>
+</body>
+
 </html>

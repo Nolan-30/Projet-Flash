@@ -1,7 +1,6 @@
 body {
   background-color: #070320;
   color: aliceblue;
-  margin: 0;
 }
 
 #main {
@@ -12,57 +11,6 @@ body {
 /**
 * Header
 */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* pr mettre le Texte en gras */
-header p {
-  margin-left: -4%;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.menu li a {
-  text-decoration: none;
-  color: white;
-}
-
-header .menu {
-  margin: 0 auto;
-
-  border-radius: 20px 20px 20px 20px;
-
-  padding: 15px;
-
-  display: flex;
-  gap: 20px;
-  gap: 40px;
-  /* placement */
-  width: 400px;
-  margin-left: 55%;
-}
-
-header .menu li {
-  list-style-type: none;
-  color: rgb(255, 255, 255);
-}
-
-.bouton {
-  border-radius: 10px;
-  padding: 10px 15px;
-  background: #fff;
-  color: #000;
-  text-decoration: none;
-}
-
-.bouton.rouge {
-  background-color: red;
-  color: #fff;
-}
 
 #section-banner {
   width: 970px;

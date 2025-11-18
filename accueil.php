@@ -6,22 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Accueil</title>
   <link rel="stylesheet" href="assets/css/accueil.css" />
+  <link rel="stylesheet" href="assets/css/header.css" />
 </head>
+
 
 <body>
   <div id="main">
-    <header>
-      <p>LOGO</p>
-      <nav>
-        <ol class="menu">
-          <li><a href="accueil.html">Accueil</a></li>
-          <li><a href="score.html">Scores</a></li>
-          <li>
-            <a href="contacte.html" class="bouton rouge">Nous Contacter</a>
-          </li>
-        </ol>
-      </nav>
-    </header>
+
+    <?php
+    $page = "accueil";
+    if ($page == "accueil") echo $page;
+    include './partials/header.php';
+    ?>
+
     <!-- debut de la box-->
     <!-- debut de la box-->
     <!-- debut de la box-->
@@ -57,7 +54,7 @@
         </div>
         <div class="jeu-item">
           <img src="assets/images/gta6.png" height="250" width="400" />
-          <p>GTA IV</p>
+          <p>GTA VI</p>
         </div>
         <div class="jeu-item">
           <img src="assets/images/BO6.jpg" height="250" width="400" />
@@ -166,48 +163,10 @@
     </div>
   </section>
 
-  <footer>
-    <!-- Créat° d'une box qui contiendra menu logo et contact pr qu'ensuite je puisse mieux manipuler ces 3 box
-       notamment grace a display flex -->
+  <?php
+  include './footer.php'
+  ?>
 
-    <div class="box-container">
-      <!-- debut: Logo Slogan-->
-      <div class="box-logo">
-        <h2><strong>LOGO</strong></h2>
-        <p>
-          Plateforme communautaire dédiée aux joueurs — tournois, classements
-          et défis quotidiens pour tous les niveaux.
-        </p>
-      </div>
-      <!-- fin: Logo Slogan-->
 
-      <!-- debut: box-menu-->
-      <div class="box-menu">
-        <h3>Menu</h3>
-        <ul>
-          <li><a href="accueil.html">Accueil</a></li>
-          <li><a href="score.html">Scores</a></li>
-          <li>
-            <a href="contacte.html">Nous Contacter</a>
-          </li>
-        </ul>
-      </div>
-      <!-- fin: box-menu-->
-
-      <div class="box-contact">
-        <h3>Contactez-nous</h3>
-        <p>Pour toute question ou partenariat, écrivez-nous :</p>
-        <p>contact@web.com</p>
-      </div>
-
-      <div class="box-rs">
-        <img src="assets/images/facebook.jpg" alt="Facebook" height="50" />
-        <img src="assets/images/insta.png" alt="Instagram" height="50" />
-        <img src="assets/images/twitter.jpg" alt="Twitter" height="50" />
-        <img src="assets/images/linkedin.jpg" alt="LinkedIn" height="50" />
-      </div>
-    </div>
-  </footer>
-</body>
 
 </html>

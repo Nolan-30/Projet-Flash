@@ -17,10 +17,10 @@
           <div class="box-menu">
               <h3>Menu</h3>
               <ul>
-                  <li><a href="accueil.html">Accueil</a></li>
-                  <li><a href="score.html">Scores</a></li>
+                  <li><a href="accueil.php">Accueil</a></li>
+                  <li><a href="score.php">Scores</a></li>
                   <li>
-                      <a href="contacte.html">Nous Contacter</a>
+                      <a href="contacte.php">Nous Contacter</a>
                   </li>
               </ul>
           </div>

@@ -11,7 +11,7 @@
 <body>
   <!-- page -->
   <figure class="fig1">
-    <img src="assets/images/login.jpg" alt="Login image" />
+    <img src="assets/images/login.png" />
   </figure>
 </body>
 
