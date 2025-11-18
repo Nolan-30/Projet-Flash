@@ -7,6 +7,8 @@
   <title>Accueil</title>
   <link rel="stylesheet" href="assets/css/accueil.css" />
   <link rel="stylesheet" href="assets/css/header.css" />
+  <link rel="stylesheet" href="assets/css/footer.css" />
+
 </head>
 
 
@@ -164,7 +166,7 @@
   </section>
 
   <?php
-  include './footer.php'
+    include './partials/footer.php';
   ?>
 
 

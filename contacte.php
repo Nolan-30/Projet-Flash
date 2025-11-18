@@ -7,6 +7,8 @@
   <title>Carte Monde</title>
   <link rel="stylesheet" href="assets/css/contacte.css" />
   <link rel="stylesheet" href="assets/css/header.css" />
+  <link rel="stylesheet" href="assets/css/footer.css" />
+
 
 </head>
 
@@ -73,7 +75,7 @@
   </div>
 
   <?php
-  include './footer.php'
+    include './partials/footer.php';
   ?>
 </body>
 

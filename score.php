@@ -7,6 +7,8 @@
   <title>Grille Score</title>
   <link rel="stylesheet" href="assets/css/score.css" />
   <link rel="stylesheet" href="assets/css/header.css" />
+  <link rel="stylesheet" href="assets/css/footer.css" />
+
 </head>
 
 <body>
@@ -147,7 +149,7 @@
     <img src="assets/images/manette.png" height="150" />
   </div>
   <?php
-  include './footer.php'
+  include './partials/footer.php';
   ?>
 
 

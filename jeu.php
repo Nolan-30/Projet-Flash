@@ -7,6 +7,8 @@
   <title>Jeu</title>
   <link rel="stylesheet" href="assets/css/jeu.css">
   <link rel="stylesheet" href="assets/css/header.css" />
+  <link rel="stylesheet" href="assets/css/footer.css" />
+
 </head>
 
 <body>
@@ -133,7 +135,7 @@
 </body>
 <!-- Début du footer -->
 <?php
-include './footer.php'
+  include './partials/footer.php';
 ?>
 <!-- fin du footer-->
 </body>
