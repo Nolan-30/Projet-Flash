@@ -52,7 +52,7 @@ CREATE TABLE jeu (
     PRIMARY KEY (id)
 ) CHARACTER SET 'utf8mb4' ENGINE = InnoDB;
 INSERT INTO jeu (name)
-VALUES ('Power of Memory');
+VALUES ('Power of Memory', 'GTA VI', 'FIFA 25');
 -- TABLE SCORE
 CREATE TABLE score (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -426,7 +426,8 @@ FROM messages_prives
     )
 ORDER BY messages_prives.created_at DESC;
 -- Story 6 --
-SELECT jeu.name,
+SELECT score.id,
+    jeu.name,
     utilisateur.pseudo,
     score.difficulty,
     score.score,

@@ -82,11 +82,6 @@ body {
   color: black;
 }
 
-p,
-h1 {
-  color: white;
-}
-
 .txt-manette {
   /* placement */
 
@@ -116,8 +111,62 @@ h1 {
   /* on replace la manette au bon endroit manuellement */
   position: absolute;
   right: 0;
-  bottom: 30px;
+  bottom: -1000px;
   height: 400px;
-  margin-right: 5%;
-  margin-bottom: -65%;
+}
+
+.filter-section {
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 25px;
+  margin-top: 35px;
+}
+
+.input-filters-container {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-group label {
+  color: #ffffff !important;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  display: block;
+}
+
+.input-group input[type="text"],
+.input-group select {
+  width: 250px;
+  height: 50px;
+  padding: 0 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  color: #333;
+  background-color: #ffffff;
+  outline: none;
+  font-family: Arial, sans-serif;
+
+  box-shadow: 0 0 0 3px #9fb4ff, 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s;
+}
+
+.input-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 15px;
+  cursor: pointer;
 }

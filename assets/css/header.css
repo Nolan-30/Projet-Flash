@@ -26,15 +26,31 @@ header nav a {
   font-size: 16px;
   padding: 10px 10px;
   border-radius: 6px;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
 }
 
 header nav a:hover {
   color: yellow;
 }
 
+header nav a.active {
+  color: yellow;
+  border-bottom: 2px solid yellow;
+  border-radius: 6px 6px 0 0;
+}
+
 header nav a:last-child {
   background-color: #d80027;
   font-weight: bold;
+  border-bottom: none;
+  border-radius: 6px;
+}
+
+header nav a:last-child.active {
+  background-color: #b00020;
+  color: white;
+  border-bottom: none;
 }
 
 @media (max-width: 768px) {
@@ -57,6 +73,10 @@ header nav a:last-child {
   header nav a {
     font-size: 14px;
     padding: 8px;
+  }
+
+  header nav a.active {
+    border-bottom: none;
   }
 }
 

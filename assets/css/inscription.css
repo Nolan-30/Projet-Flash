@@ -1,202 +1,168 @@
-img { 
-    width: 70%;
-    height: auto;
-    border-radius: 20px;
+/* Reset de base pour éviter les marges par défaut */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#main {
+/* --- 1. Partie Image (.fig1) --- */
+.fig1 {
+  width: 50%; /* L'image prend la moitié de l'écran */
+  position: relative;
+}
+
+.fig1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* L'image couvre toute sa zone sans être déformée */
+  display: block;
+}
+
+/* --- 2. Partie Formulaire (.enveloppe) --- */
+.enveloppe {
+  width: 50%; /* Le formulaire prend l'autre moitié */
   display: flex;
-  justify-content: space-between;
-}
-#main .column {
-    flex: 1;
-    margin-left: 5%;
-}
-.column-fig1{
- position: relative;
- left: 300px; 
-}
- 
-
-/* champ email */
-.email-box {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  background-color: #fff;
 }
 
-/* Label  */
-.email-box label {
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #111;
+/* Le conteneur qui limite la largeur du texte */
+.conteneur {
+  width: 100%;
+  padding: 20px;
 }
 
-/* Input de l'email */
-.email-box input {
-  padding: 12px 14px;
-  border: 1px solid #d1d5db; /* gris clair */
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Focus state */
-.email-box input:focus {
-  outline: none;
-  border-color: #3b82f6; /* bleu */
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-}
-/* champ mot de passe */
-.password-box {
-  display: flex;
-  flex-direction: column;
+/* --- 3. Typographie (Titres et Textes) --- */
+h1 {
+  font-size: 2rem; /* Taille raisonnable pour le titre */
   margin-bottom: 10px;
-}
-
-/* Label*/
-.password-box label {
-  font-weight: 600;
-  margin-bottom: 6px;
   color: #111;
 }
 
-/* Input du mot de passe */
-.password-box input {
+p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* --- 4. Les Champs (Inputs) --- */
+.pseudo-box,
+.email-box,
+.password-box,
+.confirmer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px; /* Espace entre les champs */
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #111;
+  font-size: 0.9rem;
+}
+
+input {
   padding: 12px 14px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   font-size: 1rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-/* Focus state */
-.password-box input:focus {
+input:focus {
   outline: none;
   border-color: #3b82f6;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
-/* Bouton connexion */
+/* --- 5. Les Boutons --- */
 .btn {
-  background-color: #0e1b22;  /* Couleur sombre */
-  color: white;               /* Texte blanc */
-  padding: 12px 24px;         /* Espacement interne */
-  border: none;               
-  border-radius: 8px;         
-  font-size: 16px;            
-  font-weight: 500;           
-  cursor: pointer;            
-  transition: background-color 0.3s ease;
-  width: 100%;                
-  max-width: 360px;           
-  display: block;
-  margin: 0 auto;             /* Centrer horizontalement */
-  position: relative;
-  bottom: -45px;
+  background-color: #0e1b22;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: background-color 0.3s;
 }
 
 .btn:hover {
-  background-color: #1c2a33;  
+  background-color: #1c2a33;
 }
-.wrapper {
-position: relative;
-bottom: -100px;
-}
-.remember-forgot {
-  position:relative;
-  left: 220px;
-  bottom: -18px;
-}
-/* separateur ou */
+
+/* --- 6. Séparateur et Google --- */
 .separateur {
   display: flex;
   align-items: center;
-  text-align: center;
-  color: #6b7280;   /* couleur du texte */
+  color: #6b7280;
   font-size: 14px;
-  margin: 15px 0;
-  position: relative;
-  bottom: -50px;
+  margin: 20px 0;
 }
 
 .separateur::before,
 .separateur::after {
   content: "";
   flex: 1;
-  border-bottom: 1px solid #e5e7eb; /* couleur des traits */
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .separateur::before {
   margin-right: 10px;
 }
-
 .separateur::after {
   margin-left: 10px;
 }
-/* inscription */
-.register-link{
-  text-align: center;
-  position: relative;
-  bottom: -80px;
-}
+
 .google-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px; /* espace entre logo et texte */
-  background-color: #f5f7f8; 
+  gap: 10px;
+  background-color: #f5f7f8;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  padding: 12px 18px;
+  padding: 10px;
   width: 100%;
-  max-width: 320px;
   cursor: pointer;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  color: #3c4043; /* couleur texte */
-position: relative;
-bottom: -50px;
-left: 20px;
+  color: #3c4043;
+  font-weight: 500;
+  transition: background-color 0.2s;
 }
 
 .google-btn:hover {
-  background-color: #e8f0fe; /* effet hover bleu clair */
+  background-color: #e8f0fe;
 }
 
 .google-icon {
   width: 20px;
   height: 20px;
 }
-/* confirmation mot de passe */
 
-.confirmer {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-  position: relative;
-  bottom: -20px;
+.register-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
 }
 
-/* Label*/
-.confirmer label {
+.register-link a {
+  color: #3b82f6;
+  text-decoration: none;
   font-weight: 600;
-  margin-bottom: 6px;
-  color: #111;
 }
+body {
+  display: flex;
+  /* Ajoute cette ligne pour inverser l'ordre : Image à droite, Formulaire à gauche */
+  flex-direction: row-reverse;
 
-/* Input du mot de passe */
-.confirmer input {
-  padding: 12px 14px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Focus state */
-.confirmer input:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }

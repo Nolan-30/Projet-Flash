@@ -17,9 +17,41 @@
 
     <?php
     $page = "accueil";
-    if ($page == "accueil") echo $page;
     include './partials/header.php';
+
+    require './utils/database.php';
+    $pdo = connectToBandGetPDO();
+    function getPlayed()
+    {
+      global $pdo;
+      $requete = $pdo->prepare('SELECT COUNT(*) AS Total FROM score');
+      $requete->execute();
+      $resultat = $requete->fetch();
+      return $resultat['Total'];
+    }
+
+    function getRegisterPlayer()
+    {
+      global $pdo;
+      $requete = $pdo->prepare('SELECT COUNT(*) AS Total FROM utilisateur');
+      $requete->execute();
+      $resultat = $requete->fetch();
+      return $resultat['Total'];
+    }
+
+    function getBestScorePlayer()
+    {
+      global $pdo;
+      $requete = $pdo->prepare('SELECT MIN(score) AS Meilleur_Score FROM SCORE');
+      $requete->execute();
+      $resultat = $requete->fetch();
+      return $resultat['Meilleur_Score'];
+    }
+
+
     ?>
+
+
 
     <!-- debut de la box-->
     <!-- debut de la box-->
@@ -52,7 +84,7 @@
       <div class="jeux-container">
         <div class="jeu-item">
           <img src="assets/images/fc25.jpg" height="250" width="400" />
-          <p>FIFA 25</p>
+          <p>FC 25</p>
         </div>
         <div class="jeu-item">
           <img src="assets/images/gta6.png" height="250" width="400" />
@@ -92,7 +124,7 @@
 
       <div class="numero_contenu">
         <div class="numero_encadre">
-          <div class="chiffre">256</div>
+          <div class="chiffre"><?php echo getPlayed() ?></div>
           <div class="texte">Parties jouées</div>
         </div>
         <div class="numero_encadre1">
@@ -100,13 +132,13 @@
           <div class="texte">Joueurs connectés</div>
         </div>
         <div class="numero_encadre2">
-          <div class="chiffre">10s</div>
+          <div class="chiffre"><?php echo getBestScorePlayer() ?>s</div>
           <div class="texte">Meilleur temps</div>
         </div>
       </div>
       <div class="numero_contenu1">
         <div class="numero_encadre3">
-          <div class="chiffre">9000</div>
+          <div class="chiffre"><?php echo getRegisterPlayer() ?></div>
           <div class="texte">Joueurs inscrits</div>
         </div>
         <div class="numero_encadre4">
@@ -166,7 +198,7 @@
   </section>
 
   <?php
-    include './partials/footer.php';
+  include './partials/footer.php';
   ?>
 
 
