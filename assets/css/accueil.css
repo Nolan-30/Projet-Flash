@@ -1,6 +1,7 @@
 body {
   background-color: #070320;
   color: aliceblue;
+  margin: 0;
 }
 
 #main {
@@ -390,5 +391,3 @@ body {
   /* placement du boutton valider dans l'encadré "adresse mail"*/
   margin-left: -35%;
 }
-
-

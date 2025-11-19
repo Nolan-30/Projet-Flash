@@ -12,16 +12,15 @@
 </head>
 
 <body>
-  <div id="main">
-    <?php
-    include './partials/header.php';
+  <?php
+  include './partials/header.php';
 
-    ?>
+  ?>
 
-    <?php
+  <?php
 
-    require "./utils/database.php";
-    $request = $pdo->prepare('SELECT score.id,
+  require "./utils/database.php";
+  $request = $pdo->prepare('SELECT score.id,
     jeu.name,
     jeu.images,
     utilisateur.pseudo,
@@ -36,13 +35,12 @@ jeu.name ASC,
     score.difficulty ASC,
     score.score ASC');
 
-    $request->execute();
-    $scores = $request->fetchAll();
+  $request->execute();
+  $scores = $request->fetchAll();
 
-    ?>
+  ?>
 
 
-  </div>
 
   <section id="entete">
     <h1>Scores</h1>

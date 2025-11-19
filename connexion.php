@@ -1,8 +1,11 @@
 <?php
+// 1. On démarre la session en tout premier
 session_start();
 
 try {
-  $connexion = new PDO('mysql:host=localhost;dbname=Flash;', 'root', '');
+  // Connexion à la base de données
+  $connexion = new PDO('mysql:host=localhost;dbname=Flash;charset=utf8mb4', 'root', '');
+  $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
   die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
@@ -18,14 +21,19 @@ if (isset($_POST['valider'])) {
     $errors[] = "Veuillez remplir tous les champs.";
   } else {
 
-    $reqUser = $connexion->prepare("SELECT id, pass_word FROM utilisateur WHERE email = ?");
+    // --- MODIFICATION ICI ---
+    // On récupère aussi le 'pseudo' dans la base de données
+    $reqUser = $connexion->prepare("SELECT id, pseudo, pass_word FROM utilisateur WHERE email = ?");
     $reqUser->execute([$email]);
     $user = $reqUser->fetch();
 
+    // Vérification du mot de passe
     if ($user && password_verify($password, $user['pass_word'])) {
 
-
+      // --- MODIFICATION ICI ---
+      // On stocke l'ID et le PSEUDO dans la session
       $_SESSION['userId'] = $user['id'];
+      $_SESSION['pseudo'] = $user['pseudo'];
 
       header('Location: accueil.php');
       exit();
@@ -35,7 +43,6 @@ if (isset($_POST['valider'])) {
   }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -47,13 +54,11 @@ if (isset($_POST['valider'])) {
 </head>
 
 <body>
-
   <figure class="fig1">
-    <img src="assets/images/login.png" />
+    <img src="assets/images/login.png" alt="Login image" />
   </figure>
 
   <div class="enveloppe">
-
     <form action="" method="POST">
       <div class="position-conteneur">
         <div class="conteneur">
@@ -69,23 +74,17 @@ if (isset($_POST['valider'])) {
           }
           ?>
 
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br />Suspendisse
-            scelerisque in tortor vitae sollicitudin.
-          </p>
+          <p>Connectez-vous pour reprendre votre partie.</p>
 
           <div class="email-box">
             <label for="email">Email</label>
-            <input type="email" placeholder="Example@gmail.com" required name="email" />
+            <input type="email" placeholder="Example@gmail.com" required name="email"
+              value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" />
           </div>
 
           <div class="password-box">
             <label for="password">Mot de passe</label>
-            <input
-              type="password"
-              placeholder="Votre mot de passe"
-              required
-              name="password" />
+            <input type="password" placeholder="Votre mot de passe" required name="password" />
 
             <div class="remember-forgot">
               <a href="#" class="forgot">Mot de passe oublié ?</a>
@@ -97,10 +96,7 @@ if (isset($_POST['valider'])) {
           <div class="separateur">Ou</div>
 
           <div class="google-btn">
-            <img
-              src="https://www.svgrepo.com/show/355037/google.svg"
-              alt="Google logo"
-              class="google-icon" />
+            <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google logo" class="google-icon" />
             <span>Se connecter avec Google</span>
           </div>
 

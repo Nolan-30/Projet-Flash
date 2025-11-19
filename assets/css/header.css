@@ -7,8 +7,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 36px 55px;
+  padding: 36px 30px;
   background-color: #070320;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 header .logo img {
@@ -19,7 +21,6 @@ header nav {
   display: flex;
   gap: 30px;
 }
-
 header nav a {
   color: white;
   text-decoration: none;
@@ -31,12 +32,12 @@ header nav a {
 }
 
 header nav a:hover {
-  color: yellow;
+  color: #ffcc00;
 }
 
 header nav a.active {
-  color: yellow;
-  border-bottom: 2px solid yellow;
+  color: #ffcc00;
+  border-bottom: 2px solid #ffcc00;
   border-radius: 6px 6px 0 0;
 }
 

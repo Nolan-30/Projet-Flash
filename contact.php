@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carte Monde</title>
-  <link rel="stylesheet" href="assets/css/contacte.css" />
+  <link rel="stylesheet" href="assets/css/contact.css" />
   <link rel="stylesheet" href="assets/css/header.css" />
   <link rel="stylesheet" href="assets/css/footer.css" />
 
@@ -13,12 +13,10 @@
 </head>
 
 <body>
-  <div id="main">
-    <?php
-    $page = "contacte";
-    include './partials/header.php';
-    ?>
-  </div>
+  <?php
+  $page = "contacte";
+  include './partials/header.php';
+  ?>
 
   <div class="carte">
     <h1>Lorem Ipsum is simply dummy text of the printing and.</h1>
@@ -36,10 +34,10 @@
     <div class="socials">
       <p>Suivez-nous</p>
       <div class="icons">
-        <a href="#"><img src="assets/images/facebook.jpg" alt="Facebook" /></a>
-        <a href="#"><img src="assets/images/insta.png" alt="Instagram" /></a>
-        <a href="#"><img src="assets/images/twitter.jpg" alt="Twitter" /></a>
-        <a href="#"><img src="assets/images/Linkedin.jpg" alt="LinkedIn" /></a>
+        <a href="https://www.facebook.com/?locale=fr_FR" target="_blank"><img src="assets/images/facebook.jpg" alt="Facebook" /></a>
+        <a href="https://www.instagram.com/" target="_blank"><img src="assets/images/insta.png" alt="Instagram" /></a>
+        <a href="https://x.com/" target="_blank"><img src="assets/images/twitter.jpg" alt="Twitter" /></a>
+        <a href="https://fr.linkedin.com/" target="_blank"><img src="assets/images/Linkedin.jpg" alt="LinkedIn" /></a>
       </div>
     </div>
 
@@ -75,7 +73,7 @@
   </div>
 
   <?php
-    include './partials/footer.php';
+  include './partials/footer.php';
   ?>
 </body>
 

@@ -5,14 +5,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Votre Compte</title>
-  <link rel="stylesheet" href="assets/css/crée-votre-compte.css" />
+  <link rel="stylesheet" href="assets/css/gerer_compte.css" />
   <link rel="stylesheet" href="assets/css/header.css" />
+  <link rel="stylesheet" href="assets/css/footer.css" />
 </head>
 
 <body>
+  <?php
+  include './partials/header.php';
+
+  ?>
+
   <div class="container">
-    <?php
-    <a href="/Projet-flash/creer-votre-compte.php" class="<?php if($page == 'accueilcreer-votre-compte
+
+    <a href="creer-votre-compte.php" class=""></a>
     <h1>Votre Compte</h1>
 
     <main class="main-content">
@@ -42,7 +48,7 @@
           </div>
         </div>
         <button class="save-btn score-btn">
-          Voir l'historique des scores
+          Voir l‘historique des scores
         </button>
       </section>
 
@@ -73,10 +79,9 @@
       </section>
     </main>
 
-    <?php
-    include './footer.php'
-    ?>
-  </div>
+
+    <?php include './partials/footer.php'; ?>
+
 </body>
 
 </html>

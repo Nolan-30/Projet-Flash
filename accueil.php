@@ -13,46 +13,46 @@
 
 
 <body>
+
+
+  <?php
+  $page = "accueil";
+  include './partials/header.php';
+
+  require './utils/database.php';
+  $pdo = connectToBandGetPDO();
+  function getPlayed()
+  {
+    global $pdo;
+    $requete = $pdo->prepare('SELECT COUNT(*) AS Total FROM score');
+    $requete->execute();
+    $resultat = $requete->fetch();
+    return $resultat['Total'];
+  }
+
+  function getRegisterPlayer()
+  {
+    global $pdo;
+    $requete = $pdo->prepare('SELECT COUNT(*) AS Total FROM utilisateur');
+    $requete->execute();
+    $resultat = $requete->fetch();
+    return $resultat['Total'];
+  }
+
+  function getBestScorePlayer()
+  {
+    global $pdo;
+    $requete = $pdo->prepare('SELECT MIN(score) AS Meilleur_Score FROM SCORE');
+    $requete->execute();
+    $resultat = $requete->fetch();
+    return $resultat['Meilleur_Score'];
+  }
+
+
+  ?>
+
+
   <div id="main">
-
-    <?php
-    $page = "accueil";
-    include './partials/header.php';
-
-    require './utils/database.php';
-    $pdo = connectToBandGetPDO();
-    function getPlayed()
-    {
-      global $pdo;
-      $requete = $pdo->prepare('SELECT COUNT(*) AS Total FROM score');
-      $requete->execute();
-      $resultat = $requete->fetch();
-      return $resultat['Total'];
-    }
-
-    function getRegisterPlayer()
-    {
-      global $pdo;
-      $requete = $pdo->prepare('SELECT COUNT(*) AS Total FROM utilisateur');
-      $requete->execute();
-      $resultat = $requete->fetch();
-      return $resultat['Total'];
-    }
-
-    function getBestScorePlayer()
-    {
-      global $pdo;
-      $requete = $pdo->prepare('SELECT MIN(score) AS Meilleur_Score FROM SCORE');
-      $requete->execute();
-      $resultat = $requete->fetch();
-      return $resultat['Meilleur_Score'];
-    }
-
-
-    ?>
-
-
-
     <!-- debut de la box-->
     <!-- debut de la box-->
     <!-- debut de la box-->
@@ -69,7 +69,7 @@
         </p>
         <!-- création d'une boite pour le bouton commencer afin de pouvoir gérer son placement-->
         <div class="orange-boite">
-          <a href="#" id="orange">Commencer !</a>
+          <a href="jeu.php" id="orange">Commencer !</a>
           <!--bouton cliquable-->
         </div>
       </div>

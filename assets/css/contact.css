@@ -6,6 +6,36 @@ body {
 }
 
 /* Partie Nolan */
+/* Ancien .map-section devient .carte pour centrer le texte */
+.carte {
+  padding: 60px 20px;
+  text-align: center; /* <-- Centre le H1, le P, et le P1 */
+}
+
+/* On cible les éléments H1 et la balise non standard P1 */
+.carte h1,
+.carte p,
+.carte p1 {
+  /* <-- Ajout de p1 pour être sûr */
+  text-align: center;
+}
+
+/* Ancien .map-container devient .image-carte pour centrer le BLOC */
+.image-carte {
+  max-width: 900px; /* Conserve la largeur max */
+  margin: 0 auto; /* <-- C'EST ÇA QUI CENTRE LE BLOC HORIZONTALEMENT */
+}
+
+/* L'image remplit son conteneur centré */
+.image-carte img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+h1,
+.carte p {
+  text-align: center;
+}
 
 #main {
   max-width: 1240px;
@@ -20,6 +50,7 @@ body {
 /*  Partie carte  */
 .map-section {
   padding: 60px 20px;
+  text-align: center;
 }
 
 .map-section h1 {

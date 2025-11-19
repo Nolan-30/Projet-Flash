@@ -20,7 +20,7 @@
                   <li><a href="accueil.php">Accueil</a></li>
                   <li><a href="score.php">Scores</a></li>
                   <li>
-                      <a href="contacte.php">Nous Contacter</a>
+                      <a href="contact.php">Nous Contacter</a>
                   </li>
               </ul>
           </div>
@@ -33,10 +33,10 @@
           </div>
 
           <div class="box-rs">
-              <img src="assets/images/facebook.jpg" alt="Facebook" height="50" />
-              <img src="assets/images/insta.png" alt="Instagram" height="50" />
-              <img src="assets/images/twitter.jpg" alt="Twitter" height="50" />
-              <img src="assets/images/linkedin.jpg" alt="LinkedIn" height="50" />
+              <a href="https://www.facebook.com/?locale=fr_FR" target="_blank"><img src="assets/images/facebook.jpg" alt="Facebook" /></a>
+              <a href="https://www.instagram.com/" target="_blank"><img src="assets/images/insta.png" alt="Instagram" /></a>
+              <a href="https://x.com/" target="_blank"><img src="assets/images/twitter.jpg" alt="Twitter" /></a>
+              <a href="https://fr.linkedin.com/" target="_blank"><img src="assets/images/Linkedin.jpg" alt="LinkedIn" /></a>
           </div>
       </div>
   </footer>
