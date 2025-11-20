@@ -1,3 +1,22 @@
+<?php
+session_start();
+
+require "./utils/database.php";
+$pdo = connectToBandGetPDO();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $new_email = $_POST["email"];
+  if (empty($new_email)) {
+    return;
+  }
+
+  $request = $pdo->prepare('UPDATE utilisateur SET email = ? WHERE id = ?');
+  $request->execute([$new_email, $_SESSION['userId']]);
+  $_SESSION['email'] = $new_email;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,7 +35,8 @@
 
   ?>
 
-  <div class="container">
+  <div class="account-container">
+
 
     <a href="creer-votre-compte.php" class=""></a>
     <h1>Votre Compte</h1>
@@ -28,11 +48,13 @@
         <div class="form-group">
           <label for="email">Modifier votre email :</label>
           <div class="input-wrapper">
-            <input type="email" id="email" placeholder="Votre email actuel" />
-            <button class="edit-btn">✏️</button>
-            <!-- Icône crayon -->
+            <form action="" method="post">
+              <input type="email" id="email" name="email" placeholder="Votre email actuel" />
+              <button type="submit" class="edit-btn">✏️</button>
+              <!-- Icône crayon -->
           </div>
           <button class="save-btn">Modifier</button>
+          </form>
         </div>
       </section>
 
@@ -78,10 +100,12 @@
         <button class="save-btn full-width">Modifier le mot de passe</button>
       </section>
     </main>
+  </div>
 
 
-    <?php include './partials/footer.php'; ?>
+
 
 </body>
+<?php include './partials/footer.php'; ?>
 
 </html>

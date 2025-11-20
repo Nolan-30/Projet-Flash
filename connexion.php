@@ -34,6 +34,7 @@ if (isset($_POST['valider'])) {
       // On stocke l'ID et le PSEUDO dans la session
       $_SESSION['userId'] = $user['id'];
       $_SESSION['pseudo'] = $user['pseudo'];
+      $_SESSION['email'] = $user['email'];
 
       header('Location: accueil.php');
       exit();
