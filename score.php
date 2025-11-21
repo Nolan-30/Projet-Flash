@@ -97,7 +97,7 @@ else {
           type="text"
           id="search-user"
           name="search-user"
-          placeholder="John Doe"
+          placeholder=""
           value="<?= $search?>">
       </div>
 
