@@ -1,5 +1,4 @@
 <?php
-// On vérifie si la session est démarrée, sinon on la lance
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
