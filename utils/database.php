@@ -2,7 +2,7 @@
 function connectToBandGetPDO()
 {
     $username = 'root';
-    $password = '';
+    $password = 'root';
     $dsn = 'mysql:host=localhost;dbname=flash';
 
     return new PDO(

@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+
+$search = isset($_GET['search-user']) ? $_GET['search-user'] : '';
+
+?>
 <html lang="fr">
 
 <head>
@@ -20,7 +25,10 @@
   <?php
 
   require "./utils/database.php";
-  $request = $pdo->prepare('SELECT score.id,
+  function score_by_pseudo($search)
+  {
+    global $pdo;
+    $request = $pdo->prepare('SELECT score.id,
     jeu.name,
     jeu.images,
     utilisateur.pseudo,
@@ -30,14 +38,44 @@
 FROM score
     INNER JOIN jeu ON score.game_id = jeu.id
     INNER JOIN utilisateur ON score.user_id = utilisateur.id
-ORDER BY score.id;
+    WHERE utilisateur.pseudo = ?
+ORDER BY score.id,
+jeu.name ASC,
+    score.difficulty ASC,
+    score.score ASC');
+
+  $request->execute([$search]);
+  return $request->fetchAll();
+  }
+
+  function all_scores()
+  {
+    global $pdo;
+    $request = $pdo->prepare('SELECT score.id,
+    jeu.name,
+    jeu.images,
+    utilisateur.pseudo,
+    score.difficulty,
+    score.score,
+    score.created_at
+FROM score
+    INNER JOIN jeu ON score.game_id = jeu.id
+    INNER JOIN utilisateur ON score.user_id = utilisateur.id
+ORDER BY score.id,
 jeu.name ASC,
     score.difficulty ASC,
     score.score ASC');
 
   $request->execute();
-  $scores = $request->fetchAll();
-
+  return $request->fetchAll();
+  }
+$scores = [];
+if ($search != ''){
+  $scores = score_by_pseudo($search);
+}
+else {
+  $scores = all_scores();
+}
   ?>
 
 
@@ -60,7 +98,7 @@ jeu.name ASC,
           id="search-user"
           name="search-user"
           placeholder="John Doe"
-          value="">
+          value="<?= $search?>">
       </div>
 
       <div class="input-group">
