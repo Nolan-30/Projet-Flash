@@ -53,12 +53,9 @@
 
 
   <div id="main">
-    <!-- debut de la box-->
-    <!-- debut de la box-->
-    <!-- debut de la box-->
+
     <section id="section-banner">
       <p class="orange">Nouveautés</p>
-      <!--a mettre en orange av CSS-->
       <div class="main">
         <h1>Retrouvez vos jeux préférés et défiez vos amis</h1>
         <img src="assets/images/manette.png" height="400" />
@@ -67,17 +64,12 @@
           classements en direct et défis quotidiens pour pimenter vos parties.
           Rejoignez-nous et améliorez votre niveau à chaque session.
         </p>
-        <!-- création d'une boite pour le bouton commencer afin de pouvoir gérer son placement-->
         <div class="orange-boite">
           <a href="jeu.php" id="orange">Commencer !</a>
-          <!--bouton cliquable-->
         </div>
       </div>
     </section>
 
-    <!-- fin de la box-->
-    <!-- fin de la box-->
-    <!-- fin de la box-->
 
     <section id="jeux">
       <h2>Nos jeux</h2>

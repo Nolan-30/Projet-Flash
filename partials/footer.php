@@ -1,9 +1,6 @@
     <footer>
-        <!-- Créat° d'une box qui contiendra menu logo et contact pr qu'ensuite je puisse mieux manipuler ces 3 box
-        notamment grace a display flex -->
 
         <div class="box-container">
-            <!-- debut: Logo Slogan-->
             <div class="box-logo">
                 <h2><strong>LOGO</strong></h2>
                 <p>
@@ -11,9 +8,7 @@
                     et défis quotidiens pour tous les niveaux.
                 </p>
             </div>
-            <!-- fin: Logo Slogan-->
 
-            <!-- debut: box-menu-->
             <div class="box-menu">
                 <h3>Menu</h3>
                 <ul>
@@ -24,7 +19,6 @@
                     </li>
                 </ul>
             </div>
-            <!-- fin: box-menu-->
 
             <div class="box-contact">
                 <h3>Contactez-nous</h3>

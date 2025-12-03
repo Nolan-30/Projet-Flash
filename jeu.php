@@ -36,13 +36,25 @@
           <option>6x6</option>
         </select>
       </div>
+
       <div>
         <p>Thème</p>
         <select>
-          <option>JeuxVidéo</option>
+          <option>Jeux-Aventure</option>
+          <option>Jeux-Sport</option>
+          <option>Jeux-Tir</option>
         </select>
-
       </div>
+
+      <div>
+        <p>Difficulté</p>
+        <select>
+          <option>Facile</option>
+          <option>Normal</option>
+          <option>Difficile</option>
+        </select>
+      </div>
+
       <button class="bouton1">Générer une grille</button>
     </div>
   </div>
@@ -50,67 +62,67 @@
   <!-- Grille-->
   <div class="game-grid">
     <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" />
+      <img src="assets/images/images.jpeg" alt="images" height="150" />
     </div>
 
     <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" />
+      <img src="assets/images/images.jpeg" alt="images" height="150" />
     </div>
 
     <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" />
+      <img src="assets/images/images.jpeg" alt="images" height="150" />
     </div>
 
     <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" />
+      <img src="assets/images/images.jpeg" alt="images" height="150" />
     </div>
 
     <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" />
+      <img src="assets/images/images.jpeg" alt="images" height="150" />
     </div>
 
     <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" />
+      <img src="assets/images/images.jpeg" alt="images" height="150" />
     </div>
 
     <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" />
+      <img src="assets/images/images.jpeg" alt="images" height="150" />
     </div>
 
     <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" />
+      <img src="assets/images/images.jpeg" alt="images" height="150" />
     </div>
 
     <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" />
+      <img src="assets/images/images.jpeg" alt="images" height="150" />
     </div>
 
     <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" />
+      <img src="assets/images/images.jpeg" alt="images" height="150" />
     </div>
 
     <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" />
+      <img src="assets/images/images.jpeg" alt="images" height="150" />
     </div>
 
     <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" />
+      <img src="assets/images/images.jpeg" alt="images" height="150" />
     </div>
 
     <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" />
+      <img src="assets/images/images.jpeg" alt="images" height="150" />
     </div>
 
     <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" />
+      <img src="assets/images/images.jpeg" alt="images" height="150" />
     </div>
 
     <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" />
+      <img src="assets/images/images.jpeg" alt="images" height="150" />
     </div>
 
     <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" />
+      <img src="assets/images/images.jpeg" alt="images" height="150" />
     </div>
   </div>
   <!-- Fin de grille-->

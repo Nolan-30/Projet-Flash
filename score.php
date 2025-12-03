@@ -44,8 +44,8 @@ jeu.name ASC,
     score.difficulty ASC,
     score.score ASC');
 
-  $request->execute([$search]);
-  return $request->fetchAll();
+    $request->execute([$search]);
+    return $request->fetchAll();
   }
 
   function all_scores()
@@ -66,17 +66,17 @@ jeu.name ASC,
     score.difficulty ASC,
     score.score ASC');
 
-  $request->execute();
-  return $request->fetchAll();
+    $request->execute();
+    return $request->fetchAll();
   }
-$scores = [];
-if ($search != ''){
-  $scores = score_by_pseudo($search);
-}
-else {
-  $scores = all_scores();
-}
+  $scores = [];
+  if ($search != '') {
+    $scores = score_by_pseudo($search);
+  } else {
+    $scores = all_scores();
+  }
   ?>
+
 
 
 
@@ -97,8 +97,8 @@ else {
           type="text"
           id="search-user"
           name="search-user"
-          placeholder="John Doe"
-          value="<?= $search?>">
+          placeholder=""
+          value="<?= $search ?>">
       </div>
 
       <div class="input-group">
