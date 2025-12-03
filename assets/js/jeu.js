@@ -1,127 +1,101 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const btnLancerPartie = document.getElementById("lancer-partie");
+  // 1. On récupère tous les éléments nécessaires
+  const boutonGenerer = document.getElementById("btn-generer");
+  const affichageChrono = document.getElementById("chrono");
+  const gameGrid = document.querySelector(".game-grid"); // La grille où les cartes vont être placées
+
+  const selectTaille = document.getElementById("select-taille");
   const selectTheme = document.getElementById("select-theme");
-  const selectDifficulte = document.getElementById("select-difficulte");
-  const gameGrid = document.querySelector(".game-grid");
-  const chronometreDisplay = document.getElementById("chronometre");
-  const optionsJeu = document.querySelector(".options-jeu");
 
-  let timerInterval;
-  let seconds = 0;
+  let tempsEcoule = 0;
+  let chronometre;
 
-  // --- Fonctions de base ---
+  // --- LOGIQUE DE GÉNÉRATION DE LA GRILLE ---
+  function genererGrille(taille, theme) {
+    // Déterminer les dimensions de la grille
+    let cols, rows;
 
-  function demarrerChrono() {
-    seconds = 0; // Remise à zéro
-    chronometreDisplay.style.display = "block"; // Afficher le chrono
+    if (taille === "6x6") {
+      cols = 6;
+      rows = 6;
+    } else if (taille === "10x10") {
+      cols = 10;
+      rows = 10;
+    } else {
+      cols = 4;
+      rows = 4;
+    }
+    const nombreDeCartes = cols * rows;
+    const nombreDePaires = nombreDeCartes / 2;
 
-    timerInterval = setInterval(() => {
-      seconds++;
-      const minutes = String(Math.floor(seconds / 60)).padStart(2, "0");
-      const remainingSeconds = String(seconds % 60).padStart(2, "0");
-      chronometreDisplay.textContent = `⌛ ${minutes}:${remainingSeconds}`;
-    }, 1000);
-  }
+    // Vider la grille précédente
+    gameGrid.innerHTML = "";
 
-  // Fonction fictive pour générer la grille (à compléter !)
-  function genererGrille(theme, difficulte) {
-    // 1. Déterminer la taille de la grille (lignes x colonnes)
-    let rows, cols;
-    switch (difficulte) {
-      case "facile":
-        rows = 4;
-        cols = 4;
-        break;
-      case "moyen":
-        rows = 4;
-        cols = 6;
-        break;
-      case "difficile":
-        rows = 6;
-        cols = 6;
-        break;
-      default:
-        rows = 4;
-        cols = 4;
+    // Préparer les images (C'est ICI qu'il faut prévoir les images!)
+    // EXEMPLE: Vous devez avoir des fichiers images nommés "aventure_1.png", "aventure_2.png", etc.
+    const imagesPaires = [];
+    for (let i = 1; i <= nombreDePaires; i++) {
+      const imagePath = `/Projet-flash/assets/images/BO6.jpg`;
+      imagesPaires.push(imagePath, imagePath); // Ajout d'une paire
     }
 
-    // 2. Définir le style CSS de la grille
-    gameGrid.style.gridTemplateColumns = `repeat(${cols}, 150px)`;
-    gameGrid.style.gridTemplateRows = `repeat(${rows}, 150px)`;
-
-    // 3. Calculer le nombre de cartes (doit être pair)
-    const totalCards = rows * cols;
-    gameGrid.innerHTML = ""; // Vider le contenu précédent
-
-    // --- Logique de génération des paires d'images ---
-
-    // Simuler des images basées sur le thème
-    // **Ici, vous devrez implémenter la logique pour charger les images**
-    // Exemple simple :
-    const cardImages = [];
-    const numPairs = totalCards / 2;
-
-    // Simuler 8 images différentes pour le 4x4, 12 pour 6x4, 18 pour 6x6
-    for (let i = 1; i <= numPairs; i++) {
-      // Remplacez 'path/to/img_X_theme.png' par vos chemins d'images réels !
-      const imageUrl = `assets/images/${theme}/carte_${i}.png`;
-      cardImages.push(imageUrl, imageUrl); // Ajout de la paire
-    }
-
-    // 4. Mélanger les cartes
-    // Algorithme de mélange de Fisher-Yates
-    for (let i = cardImages.length - 1; i > 0; i--) {
+    // Mélanger les cartes (Algorithme de Fisher-Yates)
+    for (let i = imagesPaires.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [cardImages[i], cardImages[j]] = [cardImages[j], cardImages[i]];
+      [imagesPaires[i], imagesPaires[j]] = [imagesPaires[j], imagesPaires[i]];
     }
 
-    // 5. Remplir la grille
-    cardImages.forEach((imageUrl) => {
+    // Configurer le CSS de la grille pour la taille choisie
+    gameGrid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+    gameGrid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+    gameGrid.style.display = "grid"; // Afficher la grille
+
+    // Remplir la grille avec les cartes
+    imagesPaires.forEach((imagePath) => {
       const cell = document.createElement("div");
       cell.classList.add("cell");
-      cell.dataset.image = imageUrl; // Stocker l'image pour la comparaison
 
-      // Image de DOS de carte (face cachée)
+      // Image de DOS de carte (face cachée par défaut)
       const dosImg = document.createElement("img");
-      dosImg.src = "assets/images/dos_carte.png"; // VOTRE IMAGE DE DOS DE CARTE
-      dosImg.alt = "Dos de carte";
+      dosImg.src = "assets/images/dos-carte.jpg"; // VOTRE IMAGE DE DOS
+      dosImg.classList.add("face-cachee");
 
-      // Image de FACE de carte (cachée initialement)
+      // Image de FACE de carte (l'image du thème)
       const faceImg = document.createElement("img");
-      faceImg.src = imageUrl;
-      faceImg.alt = "Carte thème";
-      faceImg.classList.add("face-image");
-      faceImg.style.display = "none"; // Cacher l'image de face
+      faceImg.src = imagePath;
+      faceImg.classList.add("face-visible");
+      faceImg.style.display = "none"; // Cachée au début
 
       cell.appendChild(dosImg);
       cell.appendChild(faceImg);
       gameGrid.appendChild(cell);
     });
-
-    gameGrid.style.display = "grid"; // Afficher la grille
   }
 
-  // --- Gestionnaire d'événement ---
+  // --- GESTIONNAIRE D'ÉVÉNEMENT (START) ---
 
-  btnLancerPartie.addEventListener("click", () => {
-    // 1. Récupérer les choix de l'utilisateur
+  boutonGenerer.addEventListener("click", () => {
+    // 1. Arrêt / Reset du chrono
+    clearInterval(chronometre);
+    tempsEcoule = 0;
+    affichageChrono.innerText = "00:00";
+    affichageChrono.style.display = "block";
+
+    // 2. Lancement du chronomètre
+    chronometre = setInterval(() => {
+      tempsEcoule++;
+      const minutes = Math.floor(tempsEcoule / 60);
+      const secondes = tempsEcoule % 60;
+      const minutesFormat = minutes < 10 ? "0" + minutes : minutes;
+      const secondesFormat = secondes < 10 ? "0" + secondes : secondes;
+      affichageChrono.innerText = `${minutesFormat}:${secondesFormat}`;
+    }, 1000);
+
+    // 3. Génération de la grille (Répond au critère manquant)
+    const tailleChoisie = selectTaille.value;
     const themeChoisi = selectTheme.value;
-    const difficulteChoisie = selectDifficulte.value;
+    genererGrille(tailleChoisie, themeChoisi);
 
-    // 2. Cacher le panneau d'options et afficher le chrono
-    optionsJeu.style.display = "none";
-
-    // 3. Lancer le chronomètre
-    demarrerChrono();
-
-    // 4. Générer la grille
-    genererGrille(themeChoisi, difficulteChoisie);
-
-    // 5. Ici, vous ajouterez la logique du jeu de mémoire (clics, comparaisons, etc.)
-    // La logique de jeu n'est pas demandée dans la Story 1, mais c'est l'étape suivante.
-
-    alert(
-      `Partie lancée : Thème "${themeChoisi}", Difficulté "${difficulteChoisie}"`
-    );
+    console.log(`Partie démarrée: ${tailleChoisie} - Thème: ${themeChoisi}`);
   });
 });

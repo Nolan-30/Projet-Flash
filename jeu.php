@@ -31,15 +31,16 @@
     <div class="milieu2">
       <div>
         <p>Taille de la grille</p>
-        <select>
+        <select id="select-taille">
           <option>4x4 </option>
           <option>6x6</option>
+          <option>10x10</option>
         </select>
       </div>
 
       <div>
         <p>Thème</p>
-        <select>
+        <select id="select-theme">
           <option>Jeux-Aventure</option>
           <option>Jeux-Sport</option>
           <option>Jeux-Tir</option>
@@ -55,76 +56,13 @@
         </select>
       </div>
 
-      <button class="bouton1">Générer une grille</button>
+      <button class="bouton1" id="btn-generer">Générer une grille</button>
+      <div id="chrono" style="display:none; color: white; font-size: 1.5rem; font-weight: bold; margin-left: 15px;">00:00</div>
     </div>
   </div>
   <!-- Fin de paramètre de grille-->
   <!-- Grille-->
-  <div class="game-grid">
-    <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" height="150" />
-    </div>
-
-    <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" height="150" />
-    </div>
-
-    <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" height="150" />
-    </div>
-
-    <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" height="150" />
-    </div>
-
-    <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" height="150" />
-    </div>
-
-    <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" height="150" />
-    </div>
-
-    <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" height="150" />
-    </div>
-
-    <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" height="150" />
-    </div>
-
-    <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" height="150" />
-    </div>
-
-    <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" height="150" />
-    </div>
-
-    <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" height="150" />
-    </div>
-
-    <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" height="150" />
-    </div>
-
-    <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" height="150" />
-    </div>
-
-    <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" height="150" />
-    </div>
-
-    <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" height="150" />
-    </div>
-
-    <div class="cell">
-      <img src="assets/images/images.jpeg" alt="images" height="150" />
-    </div>
-  </div>
+  <div class="game-grid"></div>
   <!-- Fin de grille-->
   <!-- Début de la fin de page-->
   <div class="groupe-fin">
@@ -193,6 +131,7 @@
   include './partials/footer.php';
   ?>
   <!-- fin du footer-->
+  <script src="/Projet-Flash/assets/js/jeu.js"></script>
 </body>
 
 </html>
