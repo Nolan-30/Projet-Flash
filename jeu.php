@@ -126,12 +126,16 @@
       </div>
     </div>
   </div>
-  <!-- Début du footer -->
+
+
+  </div>
+
+
   <?php
   include './partials/footer.php';
   ?>
   <!-- fin du footer-->
-  <script src="/Projet-Flash/assets/js/jeu.js"></script>
+  <script src="assets/js/jeu.js"></script>
 </body>
 
 </html>
