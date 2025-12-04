@@ -130,6 +130,15 @@
 
   </div>
 
+  <div id="popup-fin" class="popup-overlay" style="display: none;">
+    <div class="popup-content">
+      <h2>Félicitations ! 🎉</h2>
+      <p>Tu as terminé la partie.</p>
+      <p>Ton score : <strong id="score-final"></strong></p>
+      <button id="btn-rejouer" class="bouton1">Rejouer</button>
+    </div>
+  </div>
+
 
   <?php
   include './partials/footer.php';

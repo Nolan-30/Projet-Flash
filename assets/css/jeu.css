@@ -275,3 +275,34 @@ select {
 
   /* Initialement tournée à 180 degrés (cachée par défaut) */
 }
+
+/* ... ton code existant ... */
+
+/* STYLES DE LA POPUP */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Fond sombre transparent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: #070320;
+  border: 2px solid orange;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  width: 300px;
+}
+
+.popup-content h2 {
+  margin-top: 0;
+  color: orange;
+}

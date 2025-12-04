@@ -128,11 +128,43 @@ document.addEventListener("DOMContentLoaded", () => {
   // 3. FIN DE PARTIE & AJAX
   // ====================================================
 
+  // 3. FIN DE PARTIE & AJAX
+  // ====================================================
+
   // Fonction appelée lorsque la partie est gagnée.
   const finDePartie = () => {
     clearInterval(chronometre);
-    console.log(`Partie terminée en ${affichageChrono.innerText}!`);
+    const scoreFinal = affichageChrono.innerText; // Récupère le temps (ex: 01:23)
+    const difficulte = "Normal"; // Tu peux récupérer la vraie valeur du select si tu veux
+
+    console.log(`Partie terminée en ${scoreFinal}!`);
+
+    // 1. Envoi en AJAX vers PHP
+    fetch("utils/save_score.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        score: scoreFinal,
+        difficulty: difficulte,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Score sauvegardé :", data);
+      })
+      .catch((error) => console.error("Erreur AJAX:", error));
+
+    // 2. Afficher la Popup
+    document.getElementById("score-final").innerText = scoreFinal;
+    document.getElementById("popup-fin").style.display = "flex";
   };
+
+  // Gestion du bouton REJOUER
+  document.getElementById("btn-rejouer").addEventListener("click", () => {
+    location.reload(); // Recharge la page simplement
+  });
 
   // ====================================================
   // 4. GRILLE ET CHRONO
