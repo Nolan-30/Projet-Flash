@@ -41,7 +41,7 @@
       <div>
         <p>Thème</p>
         <select id="select-theme">
-          <option>Jeux-Aventure</option>
+          <option>Icones</option>
           <option>Jeux-Sport</option>
           <option>Jeux-Tir</option>
         </select>
@@ -132,8 +132,8 @@
 
   <div id="popup-fin" class="popup-overlay" style="display: none;">
     <div class="popup-content">
-      <h2>Félicitations ! 🎉</h2>
-      <p>Tu as terminé la partie.</p>
+      <h2>Félicitations ! </h2>
+      <p>Tu as fini la parti</p>
       <p>Ton score : <strong id="score-final"></strong></p>
       <button id="btn-rejouer" class="bouton1">Rejouer</button>
     </div>

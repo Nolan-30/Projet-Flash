@@ -155,6 +155,7 @@ if (isset($_POST['valider'])) {
       </div>
     </form>
   </div>
+  <script src="assets/js/register.js"></script>
 </body>
 
 </html>

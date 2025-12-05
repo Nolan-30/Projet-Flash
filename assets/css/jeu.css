@@ -208,24 +208,19 @@ select {
   float: right;
 }
 
-/* ======================================= */
-/* 🔳 CELLULE DE CARTE (.cell) - NOUVEAUX STYLES POUR L'ANIMATION */
-/* ======================================= */
-
 .cell {
   /* Styles de base... */
   position: relative;
   width: 100%;
   padding-bottom: 100%;
   margin: 0;
-  background-color: transparent; /* Le fond sera le dos de la carte */
+  background-color: transparent;
   border: none;
   cursor: pointer;
   overflow: hidden;
 
-  /* 🪄 Styles ESSENTIELS pour l'animation 3D */
-  transform-style: preserve-3d; /* Permet aux faces d'avoir une perspective 3D */
-  transition: transform 0.6s ease-in-out; /* Vitesse de l'animation */
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
 }
 
 .cell-inner {
@@ -233,12 +228,12 @@ select {
   width: 100%;
   height: 100%;
   text-align: center;
-  /* 🪄 Styles ESSENTIELS pour l'animation 3D */
+
+  /*animation a la rotation de la carte */
   transform-style: preserve-3d;
-  transition: transform 0.6s ease-in-out; /* Vitesse de l'animation */
+  transition: transform 0.6s ease-in-out;
 }
 
-/* 🔄 Retournement de la carte lorsque la classe 'flipped' est présente (JS l'ajoute) */
 .cell.flipped .cell-inner {
   transform: rotateY(180deg);
 }
@@ -248,7 +243,6 @@ select {
 /* ======================================= */
 
 .cell img {
-  /* Styles communs aux deux faces (remplit le conteneur .cell) */
   position: absolute;
   top: 0;
   left: 0;
@@ -257,7 +251,6 @@ select {
   object-fit: cover;
   border-radius: 6px;
 
-  /* 🪄 Styles ESSENTIELS pour cacher la face arrière lors de la rotation */
   backface-visibility: hidden;
   border: 2px solid orange; /* Garde la bordure orange */
 }
@@ -265,18 +258,12 @@ select {
 /* Face cachée (Dos de la carte) */
 .face-cachee {
   transform: rotateY(0deg); /* Position initiale */
-  z-index: 2; /* S'assurer qu'elle est devant par défaut */
 }
 
 /* Face visible (Icône Devicon) */
 .face-visible {
   transform: rotateY(180deg);
-  z-index: 1;
-
-  /* Initialement tournée à 180 degrés (cachée par défaut) */
 }
-
-/* ... ton code existant ... */
 
 /* STYLES DE LA POPUP */
 .popup-overlay {
@@ -285,11 +272,10 @@ select {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Fond sombre transparent */
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
 }
 
 .popup-content {

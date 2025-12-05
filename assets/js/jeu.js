@@ -1,13 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ====================================================
-  // 1. CONSTANTES & ÉLÉMENTS
-  // ====================================================
-
-  // Liste complète des icônes Devicon
-  const deviconSvgList = [
+  // Liste des 50 images de Jeu
+  const listImages = [
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-original.svg",
-    // ... (Reste de la liste des 50 SVG)
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg",
@@ -56,27 +51,25 @@ document.addEventListener("DOMContentLoaded", () => {
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/webpack/webpack-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg",
   ];
 
-  // Éléments UI
   const boutonGenerer = document.getElementById("btn-generer");
   const affichageChrono = document.getElementById("chrono");
   const gameGrid = document.querySelector(".game-grid");
   const selectTaille = document.getElementById("select-taille");
   const selectTheme = document.getElementById("select-theme");
 
-  // Variables de Jeu (let)
+  // variables du jeu
   let tempsEcoule = 0;
   let chronometre;
   let cartesRetournees = [];
   let verifEnCours = false;
   let pairesTrouvees = 0;
 
-  // ====================================================
-  // 2. LOGIQUE DU JEU DE MÉMOIRE
-  // ====================================================
+  // LOGIQUE DU JEU DE MÉMOIRE
 
-  // Vérifie si les deux cartes retournées forment une paire.
+  // on verifie si les deux cartes retournés sont identiques
   const checkForMatch = () => {
     const [carte1, carte2] = cartesRetournees;
     const src1 = carte1.querySelector(".face-visible").src;
@@ -94,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cartesRetournees = [];
       verifEnCours = false;
     } else {
-      // PAS UNE PAIRE : On les cache après 1 seconde.
+      //sinon on les cache 1sec apres
       setTimeout(() => {
         carte1.classList.remove("flipped");
         carte2.classList.remove("flipped");
@@ -104,9 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Retourne une carte et gère l'état du jeu.
+  // permet de retourner une carte et de gerer l'etat du jeu
   const flipCard = (cell) => {
-    // Bloquer les clics si non pertinent
+    // bloque les clics si non pertinent
     if (
       verifEnCours ||
       cell.classList.contains("matched") ||
@@ -124,22 +117,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // ====================================================
-  // 3. FIN DE PARTIE & AJAX
-  // ====================================================
-
-  // 3. FIN DE PARTIE & AJAX
-  // ====================================================
-
-  // Fonction appelée lorsque la partie est gagnée.
+  // on appl la fonction "fin de partie" quand on a gagné.
   const finDePartie = () => {
     clearInterval(chronometre);
-    const scoreFinal = affichageChrono.innerText; // Récupère le temps (ex: 01:23)
-    const difficulte = "Normal"; // Tu peux récupérer la vraie valeur du select si tu veux
+    const scoreFinal = affichageChrono.innerText; // permet de recuperer le temps
+    const difficulte = "Normal";
 
     console.log(`Partie terminée en ${scoreFinal}!`);
 
-    // 1. Envoi en AJAX vers PHP
+    //  Envoi en AJAX vers PHP
     fetch("utils/save_score.php", {
       method: "POST",
       headers: {
@@ -156,21 +142,19 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((error) => console.error("Erreur AJAX:", error));
 
-    // 2. Afficher la Popup
+    // on affiche le Popup une fois la partie fini
     document.getElementById("score-final").innerText = scoreFinal;
     document.getElementById("popup-fin").style.display = "flex";
   };
 
-  // Gestion du bouton REJOUER
+  // gestion du bouton rejouer
   document.getElementById("btn-rejouer").addEventListener("click", () => {
-    location.reload(); // Recharge la page simplement
+    location.reload();
   });
 
-  // ====================================================
-  // 4. GRILLE ET CHRONO
-  // ====================================================
+  //  GRILLE ET CHRONO
 
-  // Algorithme de Fisher-Yates pour mélanger un tableau.
+  // permet de melanger un tableau.
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -179,56 +163,49 @@ document.addEventListener("DOMContentLoaded", () => {
     return array;
   };
 
-  // Génère la grille de jeu.
+  // on genere la grille de jeu.
   const genererGrille = (taille, theme) => {
-    // Réinitialisation des variables
+    // reinitialisation des variables
     pairesTrouvees = 0;
     cartesRetournees = [];
     verifEnCours = false;
 
-    // Détermination de la taille (cols, rows)
+    // determination de la taille lignes et colones
     let cols, rows;
-    if (taille.trim() === "6x6") {
+    if (taille === "6x6") {
       [cols, rows] = [6, 6];
-    } else if (taille.trim() === "10x10") {
+    } else if (taille === "10x10") {
       [cols, rows] = [10, 10];
     } else {
       [cols, rows] = [4, 4];
     }
-
+    //  ce calcul permet de savoir le nbr d'images diferents necessaires.
     const nombreDePaires = (cols * rows) / 2;
+    // avant de creer une nouvelle grille on s'assure d'abord de l'avoir vider
     gameGrid.innerHTML = "";
 
-    // Sélection des images uniques (Devicon)
-    let imagesUniques = shuffleArray([...deviconSvgList]).slice(
-      0,
-      nombreDePaires
-    );
+    // on melange la liste des 50 icones et on prend le nbr d'image dont on a besoin
+    let imagesUniques = shuffleArray([...listImages]).slice(0, nombreDePaires);
 
-    // Création des paires d'images (pour la boucle `forEach` plus bas)
+    // creation des paires d'images pr la grande boucle
     let imagesPaires = [];
     imagesUniques.forEach((imagePath) => {
       imagesPaires.push(imagePath, imagePath);
     });
-    // ❌ SUPPRIMER OU COMMENTER LE BLOC SUIVANT
-    // imagesPaires = [];
-    // for (let i = 0; i < nombreDePaires; i++) {
-    //   imagesPaires.push(
-    //     `/Projet-flash/assets/images/BO6.jpg`,
-    //     `/Projet-flash/assets/images/BO6.jpg`
-    //   );
-    // }
-    // ❌ FIN DU BLOC À SUPPRIMER OU COMMENTER
 
-    // Mélange final
+    // dernier melange
     imagesPaires = shuffleArray(imagesPaires);
 
-    // Configuration et remplissage de la grille
+    // ca prend tt les cartes qu'on a cree et les place dans la grille
     gameGrid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
     gameGrid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
     gameGrid.style.display = "grid";
 
+    //GRANDE BOUCLE
+
+    // pr chaque image dans la liste d'image melangees
     imagesPaires.forEach((imagePath) => {
+      // creation d'un new container
       const cell = document.createElement("div");
       cell.classList.add("cell");
 
@@ -253,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Démarre/Réinitialise le chronomètre (MM:SS.M)
+  // on demarre/reinitialise le chrono
   const startChrono = () => {
     clearInterval(chronometre);
     tempsEcoule = 0;
