@@ -1,120 +1,49 @@
-⚡ Base de Données – Flash (Score)
+# 🧠 Power of Memory — Plateforme de Jeu de Mémoire
+Bienvenue sur Power of Memory, une plateforme web interactive dédiée aux passionnés de jeux de mémoire et de défis entre amis. Testez vos capacités cognitives, grimpez dans le classement et discutez en direct avec la communauté ! 🚀
 
-🗃️ Projet SQL complet pour la gestion des utilisateurs, jeux, scores, et messageries (publiques & privées).
+## ✨ Fonctionnalités
+Le projet regroupe un ensemble de fonctionnalités modernes pour une expérience de jeu complète :
 
-🎯 1. Objectif du projet
+🎮 Jeu de Mémoire Dynamique : Choisissez votre thème (Jeux Vidéo, Animaux, Cuisine) et votre niveau de difficulté (Facile 4x4, Moyen 6x4, Difficile 6x6).
 
-Ce projet contient le script SQL complet permettant de créer et de remplir une base de données nommée Flash.
-Elle permet de gérer :
-🎮 des jeux,
-👤 des utilisateurs,
-🏆 leurs scores,
-💬 des messages publics,
-📩 ainsi que des messages privés.
+👤 Gestion de Compte : Système complet d'inscription et de connexion sécurisé avec hachage des mots de passe.
 
-📦 2. Contenu principal
+🖼️ Profil Personnalisé : Modifiez votre email, changez votre mot de passe et téléchargez votre propre photo de profil (avec redimensionnement automatique).
 
-Le script SQL exécute automatiquement :
+💬 Chat Communautaire : Un système de messagerie instantanée intégré directement dans la page de jeu pour interagir avec les autres joueurs en temps réel.
 
-🔹 Création de la base Flash
+🏆 Classement & Statistiques : Visualisez le nombre total de parties jouées, le nombre de joueurs inscrits et les meilleurs scores depuis l'accueil.
 
-🔹 Création des tables :
+✉️ Page Contact : Un formulaire de contact et une carte pour rester en lien avec l'équipe.
 
-👤 Utilisateur
+## 🛠️ Technologies Utilisées
+Backend : PHP 8.x (Sessions, PDO pour la base de données).
 
-🎮 Jeu
+##🚀 Comment lancer le projet ?
+Suivez ces étapes simples pour installer le projet sur votre machine locale :
 
-🏆 Score
+1. Prérequis
+Avoir installé un serveur local comme XAMPP, WAMP ou MAMP.
 
-💬 Messages
+Avoir un navigateur web moderne.
 
-📩 Messages_prives
+2. Installation de la base de données
+Lancez PHPMyAdmin.
 
-🔹 Insertion d’un jeu de données complet (exemples d’utilisateurs, scores, messages, etc.)
+Créez une nouvelle base de données nommée flash.
 
-🧩 3. Prérequis
+Importez votre fichier .sql (si disponible) ou créez les tables utilisateur, score et messages comme défini dans les fichiers database.php et jeu.php.
 
-Avant d’exécuter le script, assurez-vous d’avoir :
+3. Configuration du code
+Placez le dossier du projet dans le répertoire racine de votre serveur (ex: htdocs pour XAMPP).
 
-✅ MySQL ou MariaDB installé
+Vérifiez les identifiants de connexion dans le fichier utils/database.php (par défaut : root sans mot de passe).
 
-✅ Un client SQL (ex. : MySQL Workbench ou VS Code + SQLTools)
+4. Lancement
+Démarrez vos modules Apache et MySQL.
 
-✅ Les permissions nécessaires pour créer / supprimer une base de données
+Ouvrez votre navigateur et accédez à : http://localhost/nom_de_votre_dossier/accueil.php.
 
-⚙️ 4. Exécution du script
+Frontend : HTML5, CSS3.
 
-1️⃣ Ouvrez votre client SQL et connectez-vous à votre serveur local
-(ex : root@localhost)
-
-2️⃣ Chargez le fichier SQL du projet (flash.sql)
-
-3️⃣ Exécutez tout le script
-
-⚠️ Le script contient :
-
-```SQL
-DROP DATABASE IF EXISTS Flash;
-Cela supprime toute base Flash déjà existante avant de la recréer.
-
-🧱 5. Schéma des tables
-👤 Table utilisateur
-
-id	INT AUTO_INCREMENT PRIMARY KEY
-email	VARCHAR(255) UNIQUE	--Adresse e-mail
-pass_word	VARCHAR(255)	--Mot de passe (haché ou non)
-pseudo	VARCHAR(100) UNIQUE	--Nom d’utilisateur
-created_at	DATETIME	--Date de création
-updated_at	DATETIME	--Mise à jour automatique
-
-🎮 Table jeu
-
-id	INT UNSIGNED AUTO_INCREMENT PRIMARY KEY	-- Identifiant du jeu
-name	VARCHAR(40) NOT NULL	-- Nom du jeu
-
-🏆 Table score
-
-id	INT UNSIGNED AUTO_INCREMENT PRIMARY KEY	-- Identifiant du score
-user_id	INT NOT NULL	-- 🔗 Référence à utilisateur(id)
-game_id	INT UNSIGNED NOT NULL	-- 🔗 Référence à jeu(id)
-difficulty	ENUM('1','2','3')	-- Niveau de difficulté
-score	INT	-- Score obtenu
-created_at	DATETIME	-- Date de la partie
-
-💬 Table messages
-
-
-id	INT AUTO_INCREMENT PRIMARY KEY	-- Identifiant du message
-user_id	INT NOT NULL	-- 🔗 Référence à utilisateur(id)
-game_id	INT UNSIGNED NOT NULL	-- 🔗 Référence à jeu(id)
-message	TEXT	-- Contenu du message
-created_at	DATETIME	-- Date d’envoi
-
-📩 Table messages_prives
-
-id	INT AUTO_INCREMENT PRIMARY KEY	-- Identifiant du message privé
-user_sender_id	INT NOT NULL	-- 🔗 Expéditeur (utilisateur.id)
-user_receiver_id	INT NOT NULL	-- 🔗 Destinataire (utilisateur.id)
-message	TEXT NOT NULL	-- Contenu du message
-is_read	TINYINT(1) DEFAULT 0	-- Message lu (1) ou non lu (0)
-created_at	DATETIME	-- Date d’envoi
-read_at	DATETIME DEFAULT NULL	-- Date de lecture
-
-🧠 Toutes les tables utilisent :
-Toutes les tables utilisent le moteur InnoDB afin de respecter les contraintes de clés étrangères.
-On utiise l'encodage "utf8mb4" pour pouvoir mettre tous les caractères possible dans notre base de donnés.
-
-🧠 6. Bonnes pratiques et remarques
-Convention de nommage des tables et des attributs : toute en minuscule et avec un underscore
-
-🧱 Contraintes d’unicité :
-Les champs email et pseudo sont UNIQUE.
-➤ Évitez les doublons ou utilisez INSERT IGNORE / ON DUPLICATE KEY UPDATE.
-
-🧮 7. Exemples de requêtes utiles
-➕ Insertion avec mot de passe haché
-INSERT INTO utilisateur (email, pass_word, pseudo)
-VALUES ('eva@gmail.com', SHA2('Eva123', 256), 'Eva');
-
-
-```
+Base de données : MySQL.
