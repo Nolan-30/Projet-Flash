@@ -19,7 +19,7 @@ Le projet regroupe un ensemble de fonctionnalités modernes pour une expérience
 ## 🛠️ Technologies Utilisées
 Backend : PHP 8.x (Sessions, PDO pour la base de données).
 
-##🚀 Comment lancer le projet ?
+## 🚀 Comment lancer le projet ?
 Suivez ces étapes simples pour installer le projet sur votre machine locale :
 
 1. Prérequis
@@ -44,6 +44,8 @@ Démarrez vos modules Apache et MySQL.
 
 Ouvrez votre navigateur et accédez à : http://localhost/nom_de_votre_dossier/accueil.php.
 
-Frontend : HTML5, CSS3.
+Frontend : HTML, CSS, JavaScript.
+
+Backend : SQL, PHP.
 
 Base de données : MySQL.
