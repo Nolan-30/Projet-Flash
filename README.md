@@ -49,3 +49,6 @@ Frontend : HTML, CSS, JavaScript.
 Backend : SQL, PHP.
 
 Base de données : MySQL.
+
+👥 Crédits & Équipe
+Ce projet a été réalisé en groupe avec un objectif précis : maîtriser le développement web Full Stack.
