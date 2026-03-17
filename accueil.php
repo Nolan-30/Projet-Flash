@@ -53,53 +53,49 @@
 
 
   <div id="main">
-    <!-- debut de la box-->
-    <!-- debut de la box-->
-    <!-- debut de la box-->
-    <section id="section-banner">
-      <p class="orange">Nouveautés</p>
-      <!--a mettre en orange av CSS-->
-      <div class="main">
-        <h1>Retrouvez vos jeux préférés et défiez vos amis</h1>
-        <img src="assets/images/manette.png" height="400" />
-        <p>
-          Découvrez une plateforme dédiée aux joueurs : tournois rapides,
-          classements en direct et défis quotidiens pour pimenter vos parties.
-          Rejoignez-nous et améliorez votre niveau à chaque session.
-        </p>
-        <!-- création d'une boite pour le bouton commencer afin de pouvoir gérer son placement-->
-        <div class="orange-boite">
-          <a href="jeu.php" id="orange">Commencer !</a>
-          <!--bouton cliquable-->
+    <div class="debut">
+      <section id="section-banner">
+        <p class="orange">Nouveautés</p>
+        <div class="main">
+          <h1>Retrouvez vos jeux préférés et défiez vos amis</h1>
+          <span class="manette">
+            <img src="assets/images/manette.png" height="400" /></span>
+          <p>
+            Découvrez une plateforme dédiée aux joueurs : tournois rapides,
+            classements en direct et défis quotidiens pour pimenter vos parties.
+            Rejoignez-nous et améliorez votre niveau à chaque session.
+          </p>
+          <div class="orange-boite">
+            <a href="jeu.php" id="orange">Commencer !</a>
+          </div>
+
         </div>
-      </div>
+    </div>
     </section>
 
-    <!-- fin de la box-->
-    <!-- fin de la box-->
-    <!-- fin de la box-->
-
-    <section id="jeux">
-      <h2>Nos jeux</h2>
-      <div class="jeux-container">
-        <div class="jeu-item">
-          <img src="assets/images/fc25.jpg" height="250" width="400" />
-          <p>FC 25</p>
+    <div class="games-container">
+      <section id="jeux">
+        <h2>Nos jeux</h2>
+        <div class="jeux-container">
+          <div class="jeu-item">
+            <img src="assets/images/fc25.jpg" height="250" width="400" />
+            <p>FC 25</p>
+          </div>
+          <div class="jeu-item">
+            <img src="assets/images/gta6.png" height="250" width="400" />
+            <p>GTA VI</p>
+          </div>
+          <div class="jeu-item">
+            <img src="assets/images/BO6.jpg" height="250" width="400" />
+            <p>BLACK OPS 6</p>
+          </div>
         </div>
-        <div class="jeu-item">
-          <img src="assets/images/gta6.png" height="250" width="400" />
-          <p>GTA VI</p>
-        </div>
-        <div class="jeu-item">
-          <img src="assets/images/BO6.jpg" height="250" width="400" />
-          <p>BLACK OPS 6</p>
-        </div>
-      </div>
-    </section>
-
+      </section>
+    </div>
+    <p class="plongez">Plongez dans l'action</p>
     <section>
       <div class="play">
-        <h2>Plongez dans l'action</h2>
+
         <h3>Jouez avec passion</h3>
         <p>
           Nos jeux et événements sont conçus pour tous les niveaux : que vous
@@ -157,21 +153,34 @@
       la plateforme et organiser des événements mémorables.
     </p>
 
-    <div class="membres">
-      <div class="membres1">
-        <img src="assets/images/kameto.jpg" height="250" />
-        <h2>Kameto</h2>
+    <div class="membres-container">
+      <div class="premiers-membres">
+        <div class="membre">
+          <img src="assets/images/Squeezie.jpg" height="250" width="250" />
+          <h2>Squeezie</h2>
+        </div>
+        <div class="membre">
+          <img src="assets/images/brawks.jpeg" height="250" width="250" />
+          <h2>Brawks</h2>
+        </div>
+        <div class="membre">
+          <img src="assets/images/gota.jpg" height="250" width="250" />
+          <h2>Gotaga</h2>
+        </div>
       </div>
 
-      <div class="membres2">
-        <img src="assets/images/brawks.jpeg" height="250" />
-        <h2>Brawks</h2>
-      </div>
-      <div class="membres3">
-        <img src="assets/images/gotaga.jpg" height="250" />
-        <h2>Gotaga</h2>
+      <div class="derniers-membres">
+        <div class="membre">
+          <img src="assets/images/Joyca.jpg" height="250" width="250" />
+          <h2>Joyca</h2>
+        </div>
+        <div class="membre">
+          <img src="assets/images/kamel.png" height="250" width="250" />
+          <h2>Kamel</h2>
+        </div>
       </div>
     </div>
+
   </section>
 
   <section id="alignement">

@@ -54,6 +54,36 @@ header nav a:last-child.active {
   border-bottom: none;
 }
 
+/* NOUVEAUX STYLES POUR LA PHOTO DE PROFIL DANS LE HEADER */
+
+/* Le lien lui-même devient un conteneur flex pour aligner l'image et le texte */
+header nav a.profile-link {
+  display: flex; /* Utilise Flexbox */
+  align-items: center; /* Centre verticalement l'image et le texte */
+  gap: 8px; /* Espace entre la PP et le pseudo */
+
+  /* Réapplique les styles de couleur et de police qui étaient en inline */
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+.profile-pic-nav {
+  width: 20px; /* Taille de l'image dans la navigation */
+  height: 20px;
+  border-radius: 50%; /* Rend l'image ronde */
+  object-fit: cover; /* Assure que l'image remplit le cercle */
+  border: 1px solid #ffcc00; /* Bordure pour mettre en valeur */
+
+  /* Assurez-vous que l'image est bien alignée dans le flex conteneur */
+  flex-shrink: 0;
+}
+
+/* S'assurer que le texte est bien coloré même au survol */
+header nav a.profile-link:hover {
+  color: #ffcc00; /* Couleur au survol */
+  /* La bordure inférieure est gérée par le style général de 'header nav a:hover' */
+}
+
 @media (max-width: 768px) {
   header {
     flex-direction: column;

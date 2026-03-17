@@ -1,9 +1,7 @@
 <?php
-// 1. On démarre la session en tout premier
 session_start();
 
 try {
-  // Connexion à la base de données
   $connexion = new PDO('mysql:host=localhost;dbname=Flash;charset=utf8mb4', 'root', '');
   $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
@@ -21,17 +19,12 @@ if (isset($_POST['valider'])) {
     $errors[] = "Veuillez remplir tous les champs.";
   } else {
 
-    // --- MODIFICATION ICI ---
-    // On récupère aussi le 'pseudo' dans la base de données
     $reqUser = $connexion->prepare("SELECT id, pseudo, pass_word FROM utilisateur WHERE email = ?");
     $reqUser->execute([$email]);
     $user = $reqUser->fetch();
 
-    // Vérification du mot de passe
     if ($user && password_verify($password, $user['pass_word'])) {
 
-      // --- MODIFICATION ICI ---
-      // On stocke l'ID et le PSEUDO dans la session
       $_SESSION['userId'] = $user['id'];
       $_SESSION['pseudo'] = $user['pseudo'];
       $_SESSION['email'] = $user['email'];

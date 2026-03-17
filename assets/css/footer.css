@@ -67,3 +67,17 @@ footer {
   height: auto;
   align-items: center;
 }
+
+.black-border {
+  margin-top: 5%;
+  border: 3px solid red;
+  margin-top: 30px;
+}
+
+.copyright {
+  margin-top: 5%;
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  padding: 20px 0;
+}
