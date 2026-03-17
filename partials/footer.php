@@ -27,15 +27,22 @@
             </div>
 
             <div class="box-rs">
-                <a href="https://www.facebook.com/?locale=fr_FR" target="_blank"><img src="assets/images/facebook.jpg" alt="Facebook" /></a>
+                <a href="https://www.facebook.com/?locale=fr_FR" target="_blank"><img src="assets/images/facebook.png" alt="Facebook" /></a>
+
                 <a href="https://www.instagram.com/" target="_blank"><img src="assets/images/insta.png" alt="Instagram" /></a>
-                <a href="https://x.com/" target="_blank"><img src="assets/images/twitter.jpg" alt="Twitter" /></a>
-                <a href="https://fr.linkedin.com/" target="_blank"><img src="assets/images/Linkedin.jpg" alt="LinkedIn" /></a>
+                <a href="https://x.com/" target="_blank"><img src="assets/images/twitter.png" alt="Twitter" /></a>
+                <a href="https://fr.linkedin.com/" target="_blank"><img src="assets/images/linkedIn.png" alt="LinkedIn" /></a>
             </div>
+
+
+
         </div>
         <div class="black-border">
             <div class="copyright">
-                Copyright &copy; 2025 LOGO All rights Reserved
+                <p>Copyright &copy; 2025 LOGO All rights Reserved</p>
+
             </div>
         </div>
+
+
     </footer>

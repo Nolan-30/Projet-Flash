@@ -143,6 +143,7 @@ body {
 }
 
 /* background */
+/* STATISTIQUES */
 
 /* ca doit prendre tt la largeutr a refaire */
 .fond {
@@ -276,30 +277,33 @@ body {
   text-align: center;
 }
 
+/* MEMBRES */
+
 #equipe {
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   height: 450px;
   width: 95%;
-
   margin: 0 auto;
   margin-top: 10%;
-
   border-radius: 20px 20px 20px 20px;
-
   padding: 15px;
-  margin-bottom: 40%;
 }
 
 #equipe h2 {
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 900;
   text-align: center;
 }
 
 #equipe p {
   text-align: center;
-  justify-content: center;
-  /* centre le texte horizontalement */
-  align-items: center;
-  margin-bottom: 10%;
+  width: 50%;
+  margin: 0 auto;
+  color: #ccc;
+  line-height: 1.6;
 }
 
 .membres-container {
@@ -308,6 +312,7 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 100px;
+  margin-top: -10%;
 }
 
 .premiers-membres {
@@ -319,7 +324,6 @@ body {
 
 .derniers-membres {
   display: flex;
-
   justify-content: center;
   align-items: center;
   gap: 150px;
@@ -332,6 +336,8 @@ body {
 .membre img {
   border-radius: 10px;
 }
+
+/* JEUX */
 
 .jeux-container {
   display: flex;
@@ -358,10 +364,8 @@ body {
   color: aliceblue;
 }
 
-/* je créer un encadré pr pouvoir décaler du txt grace au margin */
-
 #alignement {
-  margin-top: 15%;
+  margin-top: 5%;
   margin-left: 5%;
   width: 400px;
   height: 200px;
@@ -369,11 +373,10 @@ body {
 }
 
 #alignement p {
-  width: 200px;
-  height: 50px;
-
-  min-width: 400px;
-  max-width: 400px;
+  min-width: 500px;
+  max-width: 500px;
+  min-height: 100px;
+  max-height: 100px;
 }
 
 #alignement h2 {

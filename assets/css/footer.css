@@ -59,25 +59,24 @@ footer {
 
   /* placement */
   margin-top: 5%;
-  margin-left: 10%;
+  margin-left: 20%;
 }
 
 .box-rs img {
-  width: 50px;
+  width: auto;
   height: auto;
   align-items: center;
 }
 
 .black-border {
-  margin-top: 5%;
-  border: 3px solid red;
+  border-top: 1px solid black;
   margin-top: 30px;
 }
 
 .copyright {
-  margin-top: 5%;
   text-align: center;
   font-size: 13px;
-  color: #777;
+  color: #000000;
   padding: 20px 0;
+  background: white;
 }

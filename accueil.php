@@ -152,34 +152,35 @@
       engageantes et accessibles. Nous travaillons chaque jour pour améliorer
       la plateforme et organiser des événements mémorables.
     </p>
+  </section>
 
-    <div class="membres-container">
-      <div class="premiers-membres">
-        <div class="membre">
-          <img src="assets/images/Squeezie.jpg" height="250" width="250" />
-          <h2>Squeezie</h2>
-        </div>
-        <div class="membre">
-          <img src="assets/images/brawks.jpeg" height="250" width="250" />
-          <h2>Brawks</h2>
-        </div>
-        <div class="membre">
-          <img src="assets/images/gota.jpg" height="250" width="250" />
-          <h2>Gotaga</h2>
-        </div>
+  <div class="membres-container">
+    <div class="premiers-membres">
+      <div class="membre">
+        <img src="assets/images/Squeezie.jpg" height="250" width="250" />
+        <h2>Squeezie</h2>
       </div>
-
-      <div class="derniers-membres">
-        <div class="membre">
-          <img src="assets/images/Joyca.jpg" height="250" width="250" />
-          <h2>Joyca</h2>
-        </div>
-        <div class="membre">
-          <img src="assets/images/kamel.png" height="250" width="250" />
-          <h2>Kamel</h2>
-        </div>
+      <div class="membre">
+        <img src="assets/images/brawks.jpeg" height="250" width="250" />
+        <h2>Brawks</h2>
+      </div>
+      <div class="membre">
+        <img src="assets/images/gota.jpg" height="250" width="250" />
+        <h2>Gotaga</h2>
       </div>
     </div>
+
+    <div class="derniers-membres">
+      <div class="membre">
+        <img src="assets/images/Joyca.jpg" height="250" width="250" />
+        <h2>Joyca</h2>
+      </div>
+      <div class="membre">
+        <img src="assets/images/kamel.png" height="250" width="250" />
+        <h2>Kameto</h2>
+      </div>
+    </div>
+  </div>
 
   </section>
 
