@@ -13,8 +13,8 @@ header {
   box-sizing: border-box;
 }
 
-header .logo img {
-  height: 45px;
+.text-logo {
+  font-weight: 900;
 }
 
 header nav {

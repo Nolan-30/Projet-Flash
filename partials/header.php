@@ -13,7 +13,7 @@ function getProfilePicturePath($userId, $default = 'assets/img/default-profile.p
 ?>
 
 <header>
-    <p class="text-logo" style="font-weight: 900;">LOGO</p>
+    <p class="text-logo">LOGO</p>
     <nav>
         <a href="accueil.php" class="<?= ($page_actuelle == 'accueil.php') ? 'active' : '' ?>">
             Accueil
