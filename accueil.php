@@ -78,15 +78,15 @@
         <h2>Nos jeux</h2>
         <div class="jeux-container">
           <div class="jeu-item">
-            <img src="assets/images/fc25.jpg" height="250" width="400" />
+            <img src="assets/images/fc25.jpg" />
             <p>FC 25</p>
           </div>
           <div class="jeu-item">
-            <img src="assets/images/gta6.png" height="250" width="400" />
+            <img src="assets/images/gta6.png" />
             <p>GTA VI</p>
           </div>
           <div class="jeu-item">
-            <img src="assets/images/BO6.jpg" height="250" width="400" />
+            <img src="assets/images/BO6.jpg" />
             <p>BLACK OPS 6</p>
           </div>
         </div>

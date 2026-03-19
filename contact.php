@@ -34,10 +34,10 @@
     <div class="socials">
       <p>Suivez-nous</p>
       <div class="icons">
-        <a href="https://www.facebook.com/?locale=fr_FR" target="_blank"><img src="assets/images/facebook.jpg" alt="Facebook" /></a>
-        <a href="https://www.instagram.com/" target="_blank"><img src="assets/images/insta.png" alt="Instagram" /></a>
-        <a href="https://x.com/" target="_blank"><img src="assets/images/twitter.jpg" alt="Twitter" /></a>
-        <a href="https://fr.linkedin.com/" target="_blank"><img src="assets/images/Linkedin.jpg" alt="LinkedIn" /></a>
+        <a href="https://www.facebook.com/?locale=fr_FR" target="_blank"><img src="assets/images/facebook.png" alt=""></a>
+        <a href="https://www.instagram.com/" target="_blank"><img src="assets/images/insta.png" alt=""></a>
+        <a href="https://x.com/" target="_blank"><img src="assets/images/x.png" alt="X"></a>
+        <a href="https://fr.linkedin.com/" target="_blank"><img src="assets/images/linkedIn.png" alt="LinkedIn"></a>
       </div>
     </div>
 

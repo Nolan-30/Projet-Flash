@@ -87,6 +87,7 @@ body {
 
   margin-left: 5%;
   margin-top: 25%;
+  margin-bottom: 5%;
   min-width: 500px;
   max-width: 500px;
   border: red;
@@ -111,7 +112,7 @@ body {
   /* on replace la manette au bon endroit manuellement */
   position: absolute;
   right: 0;
-  bottom: -1000px;
+  bottom: -1100px;
   height: 400px;
 }
 
@@ -157,7 +158,9 @@ body {
   outline: none;
   font-family: Arial, sans-serif;
 
-  box-shadow: 0 0 0 3px #9fb4ff, 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 0 0 3px #9fb4ff,
+    0 4px 6px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.2s;
 }
 
