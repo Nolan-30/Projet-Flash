@@ -37,6 +37,7 @@ body {
   width: 90%;
   border-radius: 10px;
   border-spacing: 0 10px;
+  /* border-collapse: separate; */
 }
 
 .tableau tbody tr {
@@ -80,14 +81,28 @@ body {
   background-color: #ffffff;
   color: black;
 }
+.tableau th:first-child {
+  border-radius: 10px 0 0 10px;
+}
 
-.tableau tbody tr {
-  border-radius: 10px;
+/* arrondi a droite*/
+.tableau th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+/* arrondi a gauche*/
+
+.tableau tbody td:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+/* arrondi a droite*/
+.tableau tbody td:last-child {
+  border-radius: 0 10px 10px 0;
 }
 
 .tableau tr {
   background-color: white;
-  border-radius: 20px;
+
   margin-bottom: 10px;
 }
 .tableau tr th {
@@ -126,6 +141,7 @@ body {
   right: 0;
   bottom: -1100px;
   height: 400px;
+  margin-bottom: 5%;
 }
 
 .filter-section {
