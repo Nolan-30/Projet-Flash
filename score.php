@@ -17,7 +17,9 @@ $search = isset($_GET['search-user']) ? $_GET['search-user'] : '';
 </head>
 
 <body>
+
   <?php
+  $page = "score";
   include './partials/header.php';
 
   ?>
