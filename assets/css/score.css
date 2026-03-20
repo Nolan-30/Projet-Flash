@@ -39,6 +39,10 @@ body {
   border-spacing: 0 10px;
 }
 
+.tableau tbody tr {
+  border-radius: 10px;
+}
+
 .tableau th tr {
   border-radius: 10px;
 }

@@ -174,33 +174,6 @@ button:hover {
   margin: 0 auto;
   width: 90%;
 }
-/*.  Header. */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header p {
-  margin-left: -3%;
-  color: white;
-  font-size: 24px;
-  font-weight: bold; /* Texte en gras */
-}
-
-header .menu {
-  margin: 0 auto;
-  border-radius: 20px 20px 20px 20px;
-  padding: 15px;
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-header .menu li {
-  list-style-type: none;
-  color: rgb(255, 255, 255);
-}
 
 .bouton {
   border-radius: 10px;
