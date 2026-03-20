@@ -35,8 +35,12 @@ body {
   margin-left: 5%;
   margin-top: 5%;
   width: 90%;
-
+  border-radius: 10px;
   border-spacing: 0 10px;
+}
+
+.tableau th tr {
+  border-radius: 10px;
 }
 
 .tableau img {
@@ -71,6 +75,10 @@ body {
   text-align: center;
   background-color: #ffffff;
   color: black;
+}
+
+.tableau tbody tr {
+  border-radius: 10px;
 }
 
 .tableau tr {
