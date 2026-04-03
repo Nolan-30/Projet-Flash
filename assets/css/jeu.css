@@ -41,13 +41,21 @@ select {
   border-radius: 4px;
 }
 .game-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 150px);
-  grid-template-rows: repeat(4, 150px);
-  gap: 100px;
-  justify-content: center;
-  height: auto;
-  margin-top: 5%;
+  display: grid; /* Nécessaire pour l'affichage en grille */
+  /* Les propriétés grid-template-columns/rows seront définies en JS (4x4 ou 6x6) */
+
+  /* Nous réduisons l'espacement (gap) pour que le 6x6 tienne mieux */
+  gap: 15px;
+
+  /* S'assurer que la grille est bien centrée horizontalement et prend une taille maximale */
+  max-width: 1200px;
+  width: 90%;
+  margin: 5% auto 0 auto;
+  padding: 20px;
+  box-sizing: border-box; /* S'assurer que padding est inclus dans la largeur/hauteur */
+
+  /* Cacher la grille par défaut, elle sera affichée par le JS */
+  display: none;
 }
 
 .groupe-fin {
@@ -68,3 +76,221 @@ select {
   float: right;
 }
 
+/* ======================================= */
+/* 🧩 STYLES PRINCIPAUX ET GÉNÉRAUX */
+/* ======================================= */
+
+.main {
+  max-width: 1240px;
+  width: 1240px;
+  margin: auto;
+}
+
+/* ======================================= */
+/* ⚙️ STYLES DES PARAMÈTRES (MILIEU 2) */
+/* ======================================= */
+
+.milieu2 {
+  justify-content: center;
+  display: flex;
+  gap: 2rem;
+  align-items: end; /* Alignement en bas */
+}
+
+/* Boutons */
+.bouton1 {
+  border: 2px solid rgb(224, 112, 8);
+  border-radius: 12px;
+  padding: 10px;
+  background: linear-gradient(-90deg, Orange, red);
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+.bouton2 {
+  border: 2px solid red; /* Corrigé la syntaxe border */
+  padding: 10px 60px;
+  background: red; /* Simplifié car 'linear-gradient(red)' n'est pas valide */
+  max-width: 177px;
+  height: 50px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Sélectionneurs */
+select {
+  display: inline-block;
+  border: none;
+  width: 200px;
+  height: 30px;
+  border-radius: 4px;
+}
+
+/* Affichage du Chronomètre */
+#chrono {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 15px;
+  /* La couleur est déjà définie dans le style inline du HTML */
+}
+
+/* ======================================= */
+/* 🖼️ GRILLE DE JEU (Jeu Dynamique) */
+/* ======================================= */
+
+.game-grid {
+  display: none; /* Le JS le mettra à 'grid' au démarrage */
+
+  /* Pour gérer les écarts entre les cartes */
+  gap: 15px;
+
+  /* S'assurer que la grille est centrée et responsive */
+  max-width: 1200px;
+  width: 90%;
+  margin: 5% auto 0 auto;
+  padding: 20px;
+  box-sizing: border-box; /* Inclusion du padding dans la largeur/hauteur */
+
+  /* REMARQUE: Les propriétés grid-template-columns/rows sont définies par le JS */
+}
+
+/* ======================================= */
+/* 🔳 CELLULE DE CARTE (.cell) */
+/* ======================================= */
+
+.cell {
+  /* Assure que la cellule reste un carré (ratio 1:1) */
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* Définit la hauteur égale à la largeur */
+  margin: 0;
+
+  /* Style visuel de la carte */
+  background-color: #1e1e3f;
+  border: 2px solid orange;
+  border-radius: 8px;
+  cursor: pointer;
+
+  /* Cacher ce qui dépasse */
+  overflow: hidden;
+}
+
+/* Styles pour les images à l'intérieur de la carte */
+.cell img {
+  /* Permet aux images de se superposer et de remplir la carte */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Recouvrir la surface sans déformer */
+  border-radius: 6px;
+  transition:
+    transform 0.3s,
+    opacity 0.3s; /* Pour de futures animations */
+}
+
+/* ======================================= */
+/* ⬇️ STYLES DE FIN DE PAGE (GROUPE-FIN) */
+/* ======================================= */
+
+.groupe-fin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5%;
+  gap: 10px;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.groupe-fin .photo-manette img {
+  width: 522px;
+  height: auto;
+  float: right;
+}
+
+.cell {
+  /* Styles de base... */
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+}
+
+.cell-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+  /*animation a la rotation de la carte */
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+}
+
+.cell.flipped .cell-inner {
+  transform: rotateY(180deg);
+}
+
+/* ======================================= */
+/* 🖼️ IMAGES DES FACES */
+/* ======================================= */
+
+.cell img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+
+  backface-visibility: hidden;
+  border: 2px solid orange; /* Garde la bordure orange */
+}
+
+/* Face cachée (Dos de la carte) */
+.face-cachee {
+  transform: rotateY(0deg); /* Position initiale */
+}
+
+/* Face visible (Icône Devicon) */
+.face-visible {
+  transform: rotateY(180deg);
+}
+
+/* STYLES DE LA POPUP */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #070320;
+  border: 2px solid orange;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  width: 300px;
+}
+
+.popup-content h2 {
+  margin-top: 0;
+  color: orange;
+}
