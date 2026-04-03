@@ -25,6 +25,8 @@ body {
   color: #fff;
 }
 .milieu1 {
+  margin-top: 5%;
+  margin-bottom: 5%;
   text-align: center;
 }
 .milieu2 {
@@ -47,54 +49,74 @@ select {
   /* Nous réduisons l'espacement (gap) pour que le 6x6 tienne mieux */
   gap: 15px;
 
-  /* S'assurer que la grille est bien centrée horizontalement et prend une taille maximale */
   max-width: 1200px;
   width: 90%;
   margin: 5% auto 0 auto;
   padding: 20px;
-  box-sizing: border-box; /* S'assurer que padding est inclus dans la largeur/hauteur */
+  box-sizing: border-box;
 
-  /* Cacher la grille par défaut, elle sera affichée par le JS */
+  /* on cache la grille au debut */
   display: none;
 }
 
-.groupe-fin {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 5%;
-  gap: 10px;
+/* partie fin de page  */
+.jeu-texte {
   margin-left: 10%;
-  margin-top: 5%;
-}
-.cell {
-  margin: 0;
-}
-.groupe-fin .photo-manette img {
-  width: 522px;
-  height: auto;
-  float: right;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  max-width: 1000px;
+  padding: 40px;
 }
 
-/* ======================================= */
-/* 🧩 STYLES PRINCIPAUX ET GÉNÉRAUX */
-/* ======================================= */
+.text-content {
+  flex: 1;
+}
+
+.text-content h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+/* explication courte du jeu */
+.text-content p {
+  font-size: 0.9rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* bouton jouer */
+.btn {
+  display: inline-block;
+  background-color: #e60026; /* Rouge vif */
+  color: white;
+  padding: 12px 40px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.image-content {
+  flex: 1;
+}
+
+.image-content img {
+  width: 100%;
+  margin-left: 70%;
+}
 
 .main {
   max-width: 1240px;
   width: 1240px;
   margin: auto;
+  margin-bottom: 5%;
 }
-
-/* ======================================= */
-/* ⚙️ STYLES DES PARAMÈTRES (MILIEU 2) */
-/* ======================================= */
 
 .milieu2 {
   justify-content: center;
   display: flex;
   gap: 2rem;
-  align-items: end; /* Alignement en bas */
+  align-items: end; /* alignement en bas */
 }
 
 /* Boutons */
@@ -108,16 +130,15 @@ select {
   cursor: pointer;
 }
 .bouton2 {
-  border: 2px solid red; /* Corrigé la syntaxe border */
+  border: 2px solid red;
   padding: 10px 60px;
-  background: red; /* Simplifié car 'linear-gradient(red)' n'est pas valide */
+  background: red;
   max-width: 177px;
   height: 50px;
   color: #fff;
   cursor: pointer;
 }
 
-/* Sélectionneurs */
 select {
   display: inline-block;
   border: none;
@@ -126,43 +147,28 @@ select {
   border-radius: 4px;
 }
 
-/* Affichage du Chronomètre */
 #chrono {
   font-size: 1.5rem;
   font-weight: bold;
   margin-left: 15px;
-  /* La couleur est déjà définie dans le style inline du HTML */
 }
 
-/* ======================================= */
-/* 🖼️ GRILLE DE JEU (Jeu Dynamique) */
-/* ======================================= */
-
 .game-grid {
-  display: none; /* Le JS le mettra à 'grid' au démarrage */
+  display: none;
 
-  /* Pour gérer les écarts entre les cartes */
   gap: 15px;
 
-  /* S'assurer que la grille est centrée et responsive */
   max-width: 1200px;
   width: 90%;
   margin: 5% auto 0 auto;
   padding: 20px;
-  box-sizing: border-box; /* Inclusion du padding dans la largeur/hauteur */
-
-  /* REMARQUE: Les propriétés grid-template-columns/rows sont définies par le JS */
+  box-sizing: border-box;
 }
 
-/* ======================================= */
-/* 🔳 CELLULE DE CARTE (.cell) */
-/* ======================================= */
-
 .cell {
-  /* Assure que la cellule reste un carré (ratio 1:1) */
   position: relative;
   width: 100%;
-  padding-bottom: 100%; /* Définit la hauteur égale à la largeur */
+  padding-bottom: 100%;
   margin: 0;
 
   /* Style visuel de la carte */
@@ -171,7 +177,6 @@ select {
   border-radius: 8px;
   cursor: pointer;
 
-  /* Cacher ce qui dépasse */
   overflow: hidden;
 }
 
@@ -183,16 +188,12 @@ select {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Recouvrir la surface sans déformer */
+  object-fit: cover;
   border-radius: 6px;
   transition:
     transform 0.3s,
-    opacity 0.3s; /* Pour de futures animations */
+    opacity 0.3s;
 }
-
-/* ======================================= */
-/* ⬇️ STYLES DE FIN DE PAGE (GROUPE-FIN) */
-/* ======================================= */
 
 .groupe-fin {
   display: flex;
@@ -211,7 +212,6 @@ select {
 }
 
 .cell {
-  /* Styles de base... */
   position: relative;
   width: 100%;
   padding-bottom: 100%;
@@ -240,10 +240,6 @@ select {
   transform: rotateY(180deg);
 }
 
-/* ======================================= */
-/* 🖼️ IMAGES DES FACES */
-/* ======================================= */
-
 .cell img {
   position: absolute;
   top: 0;
@@ -254,7 +250,7 @@ select {
   border-radius: 6px;
 
   backface-visibility: hidden;
-  border: 2px solid orange; /* Garde la bordure orange */
+  border: 2px solid orange;
 }
 
 /* Face cachée (Dos de la carte) */

@@ -24,7 +24,7 @@
     <!-- Début de la page-->
     <div class="milieu1">
       <h1>La puissance de la mémoire</h1>
-      <p>Teste ta mémoire en t'amusant ! !</p>
+
     </div>
     <!-- Fin du début de la page-->
     <!-- Paramètre de grille-->
@@ -61,27 +61,31 @@
     </div>
   </div>
   <!-- Fin de paramètre de grille-->
+
+
   <!-- Grille-->
   <div class="game-grid"></div>
   <!-- Fin de grille-->
+
+
   <!-- Début de la fin de page-->
-  <div class="groupe-fin">
-    <div>
+  <section class="jeu-texte">
+    <div class="text-content">
       <h1> Bienvenue dans Power of Memory, le défi ultime pour tester ta concentration ! </h1>
+
       <p>Retrouve les paires de manettes cachées dans la grille en un temps record. </p>
       <p>Améliore ton score, défie tes amis et deviens le maître de la mémoire !
         Prêt à relever le challenge ? Clique sur "Jouer" et que le jeu commence !
       </p>
-      <button class="bouton2">Jouer</button>
+      <a href="#" class="btn">Jouer</a>
     </div>
-
-    <div>
-      <figure class="photo-manette">
-        <img src="assets/images/Design_sans_titre_2.png" alt="image">
-      </figure>
+    <!-- image manette -->
+    <div class="image-content">
+      <img src="assets/images/Design_sans_titre_2.png" alt="image">
     </div>
-  </div>
+  </section>
 
+  <!-- PARTIE CHATBOT -->
   <div class="chatbot-container">
 
     <div class="chatbot-header">
