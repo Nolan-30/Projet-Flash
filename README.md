@@ -1,120 +1,71 @@
-⚡ Base de Données – Flash (Score)
+## 🧠 Power of Memory & ⚡ Base de Données Flash
+Bienvenue sur Power of Memory, une plateforme web interactive Full Stack dédiée aux passionnés de jeux de mémoire et de défis entre amis. Ce projet inclut un frontend dynamique, un backend robuste en PHP, et repose sur la base de données relationnelle Flash pour gérer les utilisateurs, les scores et les messageries. 🚀
 
-🗃️ Projet SQL complet pour la gestion des utilisateurs, jeux, scores, et messageries (publiques & privées).
+# ✨ Fonctionnalités Principales
+🎮 Jeu de Mémoire Dynamique : Choisissez votre thème (Jeux Vidéo, Animaux, Cuisine) et votre niveau de difficulté (Facile 4x4, Normal 6x4, Difficile 6x6).
 
-🎯 1. Objectif du projet
+👤 Espace Membre Sécurisé : Inscription, connexion, et gestion de session avec hachage des mots de passe (SHA2).
 
-Ce projet contient le script SQL complet permettant de créer et de remplir une base de données nommée Flash.
-Elle permet de gérer :
-🎮 des jeux,
-👤 des utilisateurs,
-🏆 leurs scores,
-💬 des messages publics,
-📩 ainsi que des messages privés.
+🖼️ Profil Personnalisé : Modification des informations (email, mot de passe) et upload de photo de profil avec redimensionnement automatique.
 
-📦 2. Contenu principal
+💬 Messagerie Intégrée : Chat communautaire (messages publics) accessible pendant les parties et gestion de messages privés entre utilisateurs.
 
-Le script SQL exécute automatiquement :
+🏆 Classements & Statistiques : Affichage en temps réel des meilleurs scores, du nombre total de parties jouées et du nombre de joueurs inscrits.
 
-🔹 Création de la base Flash
+✉️ Support : Page de contact avec formulaire et carte interactive.
 
-🔹 Création des tables :
+# 🛠️ Technologies Utilisées
+Frontend : HTML5, CSS3, JavaScript (Vanilla).
 
-👤 Utilisateur
+Backend : PHP 8.x (Gestion des sessions, PDO pour la connexion SQL).
 
-🎮 Jeu
+Base de données : MySQL / MariaDB.
 
-🏆 Score
+Serveur local recommandé : WAMP, XAMPP, ou MAMP.
 
-💬 Messages
+🗃️ Architecture de la Base de Données (Flash)
+La base de données est construite avec le moteur InnoDB (pour garantir l'intégrité des clés étrangères) et utilise l'encodage utf8mb4 pour supporter tous les caractères (y compris les emojis).
 
-📩 Messages_prives
+🧩 Schéma des tables :
+👤 utilisateur : Gestion des joueurs (id, email UNIQUE, pass_word, pseudo UNIQUE, created_at, updated_at).
 
-🔹 Insertion d’un jeu de données complet (exemples d’utilisateurs, scores, messages, etc.)
+🎮 jeu : Catalogue des jeux (id, name).
 
-🧩 3. Prérequis
+🏆 score : Historique des parties (id, user_id 🔗, game_id 🔗, difficulty, score, created_at).
 
-Avant d’exécuter le script, assurez-vous d’avoir :
+💬 messages : Chat global (id, user_id 🔗, game_id 🔗, message, created_at).
 
-✅ MySQL ou MariaDB installé
+📩 messages_prives : Messagerie entre joueurs (id, user_sender_id 🔗, user_receiver_id 🔗, message, is_read, created_at, read_at).
 
-✅ Un client SQL (ex. : MySQL Workbench ou VS Code + SQLTools)
+💡 Bonnes Pratiques & Convention : Le nommage des tables et attributs est 100% en minuscules avec des underscores (_). Les mots de passe sont hachés via SHA2(..., 256).
 
-✅ Les permissions nécessaires pour créer / supprimer une base de données
+🚀 Comment lancer le projet ?
+1️⃣ Prérequis
+Avoir installé un environnement serveur local (WAMP, XAMPP, etc.).
 
-⚙️ 4. Exécution du script
+Avoir un navigateur web moderne.
 
-1️⃣ Ouvrez votre client SQL et connectez-vous à votre serveur local
-(ex : root@localhost)
+Avoir un client SQL (PhpMyAdmin, DBeaver, VS Code + SQLTools).
 
-2️⃣ Chargez le fichier SQL du projet (flash.sql)
+2️⃣ Installation de la Base de Données
+Lancez votre serveur MySQL et ouvrez votre client SQL.
 
-3️⃣ Exécutez tout le script
+Chargez et exécutez le script SQL fourni (flash.sql).
 
-⚠️ Le script contient :
+⚠️ Attention : Le script contient DROP DATABASE IF EXISTS Flash;. Cela supprimera et recréera la base de données avec un jeu de données de test complet.
 
-```SQL
-DROP DATABASE IF EXISTS Flash;
-Cela supprime toute base Flash déjà existante avant de la recréer.
+3️⃣ Configuration du Code
+Placez le dossier complet du projet dans le répertoire racine de votre serveur web (ex: www pour WAMP, ou htdocs pour XAMPP).
 
-🧱 5. Schéma des tables
-👤 Table utilisateur
+Ouvrez le fichier utils/database.php.
 
-id	INT AUTO_INCREMENT PRIMARY KEY
-email	VARCHAR(255) UNIQUE	--Adresse e-mail
-pass_word	VARCHAR(255)	--Mot de passe (haché ou non)
-pseudo	VARCHAR(100) UNIQUE	--Nom d’utilisateur
-created_at	DATETIME	--Date de création
-updated_at	DATETIME	--Mise à jour automatique
+Vérifiez et adaptez vos identifiants de connexion si nécessaire (par défaut sous XAMPP/WAMP : utilisateur root, pas de mot de passe).
 
-🎮 Table jeu
+4️⃣ Lancement
+Démarrez les modules Apache et MySQL de votre serveur local.
 
-id	INT UNSIGNED AUTO_INCREMENT PRIMARY KEY	-- Identifiant du jeu
-name	VARCHAR(40) NOT NULL	-- Nom du jeu
+Ouvrez votre navigateur et accédez à l'adresse suivante :
+👉 http://localhost/nom_de_votre_dossier/accueil.php
 
-🏆 Table score
-
-id	INT UNSIGNED AUTO_INCREMENT PRIMARY KEY	-- Identifiant du score
-user_id	INT NOT NULL	-- 🔗 Référence à utilisateur(id)
-game_id	INT UNSIGNED NOT NULL	-- 🔗 Référence à jeu(id)
-difficulty	ENUM('1','2','3')	-- Niveau de difficulté
-score	INT	-- Score obtenu
-created_at	DATETIME	-- Date de la partie
-
-💬 Table messages
-
-
-id	INT AUTO_INCREMENT PRIMARY KEY	-- Identifiant du message
-user_id	INT NOT NULL	-- 🔗 Référence à utilisateur(id)
-game_id	INT UNSIGNED NOT NULL	-- 🔗 Référence à jeu(id)
-message	TEXT	-- Contenu du message
-created_at	DATETIME	-- Date d’envoi
-
-📩 Table messages_prives
-
-id	INT AUTO_INCREMENT PRIMARY KEY	-- Identifiant du message privé
-user_sender_id	INT NOT NULL	-- 🔗 Expéditeur (utilisateur.id)
-user_receiver_id	INT NOT NULL	-- 🔗 Destinataire (utilisateur.id)
-message	TEXT NOT NULL	-- Contenu du message
-is_read	TINYINT(1) DEFAULT 0	-- Message lu (1) ou non lu (0)
-created_at	DATETIME	-- Date d’envoi
-read_at	DATETIME DEFAULT NULL	-- Date de lecture
-
-🧠 Toutes les tables utilisent :
-Toutes les tables utilisent le moteur InnoDB afin de respecter les contraintes de clés étrangères.
-On utiise l'encodage "utf8mb4" pour pouvoir mettre tous les caractères possible dans notre base de donnés.
-
-🧠 6. Bonnes pratiques et remarques
-Convention de nommage des tables et des attributs : toute en minuscule et avec un underscore
-
-🧱 Contraintes d’unicité :
-Les champs email et pseudo sont UNIQUE.
-➤ Évitez les doublons ou utilisez INSERT IGNORE / ON DUPLICATE KEY UPDATE.
-
-🧮 7. Exemples de requêtes utiles
-➕ Insertion avec mot de passe haché
-INSERT INTO utilisateur (email, pass_word, pseudo)
-VALUES ('eva@gmail.com', SHA2('Eva123', 256), 'Eva');
-
-
-```
+👥 Équipe & Crédits
+Ce projet collaboratif a été réalisé en groupe avec un objectif pédagogique clair : maîtriser les concepts fondamentaux du développement web Full Stack (de la création de l'interface graphique à la conception de la base de données, en passant par la logique serveur).
