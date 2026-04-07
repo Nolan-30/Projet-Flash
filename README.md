@@ -1,7 +1,7 @@
-## 🧠 Power of Memory & ⚡ Base de Données Flash
+# 🧠 Power of Memory & ⚡ Base de Données Flash
 Bienvenue sur Power of Memory, une plateforme web interactive Full Stack dédiée aux passionnés de jeux de mémoire et de défis entre amis. Ce projet inclut un frontend dynamique, un backend robuste en PHP, et repose sur la base de données relationnelle Flash pour gérer les utilisateurs, les scores et les messageries. 🚀
 
-# ✨ Fonctionnalités Principales
+## ✨ Fonctionnalités Principales
 🎮 Jeu de Mémoire Dynamique : Choisissez votre thème (Jeux Vidéo, Animaux, Cuisine) et votre niveau de difficulté (Facile 4x4, Normal 6x4, Difficile 6x6).
 
 👤 Espace Membre Sécurisé : Inscription, connexion, et gestion de session avec hachage des mots de passe (SHA2).
@@ -14,7 +14,7 @@ Bienvenue sur Power of Memory, une plateforme web interactive Full Stack dédié
 
 ✉️ Support : Page de contact avec formulaire et carte interactive.
 
-# 🛠️ Technologies Utilisées
+## 🛠️ Technologies Utilisées
 Frontend : HTML5, CSS3, JavaScript (Vanilla).
 
 Backend : PHP 8.x (Gestion des sessions, PDO pour la connexion SQL).
@@ -23,7 +23,7 @@ Base de données : MySQL / MariaDB.
 
 Serveur local recommandé : WAMP, XAMPP, ou MAMP.
 
-🗃️ Architecture de la Base de Données (Flash)
+## 🗃️ Architecture de la Base de Données (Flash)
 La base de données est construite avec le moteur InnoDB (pour garantir l'intégrité des clés étrangères) et utilise l'encodage utf8mb4 pour supporter tous les caractères (y compris les emojis).
 
 🧩 Schéma des tables :
@@ -39,7 +39,7 @@ La base de données est construite avec le moteur InnoDB (pour garantir l'intég
 
 💡 Bonnes Pratiques & Convention : Le nommage des tables et attributs est 100% en minuscules avec des underscores (_). Les mots de passe sont hachés via SHA2(..., 256).
 
-🚀 Comment lancer le projet ?
+###  🚀 Comment lancer le projet ?
 1️⃣ Prérequis
 Avoir installé un environnement serveur local (WAMP, XAMPP, etc.).
 
